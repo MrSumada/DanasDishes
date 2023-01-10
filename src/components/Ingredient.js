@@ -16,7 +16,7 @@ const Ingredient = (prop) => {
 
     return (
         <p>
-            <input type="checkbox" name="step-1" 
+            <input type="checkbox" id="step-1" 
             // checked={if (boxChecked) ? true : false} 
             onChange={e => handleChange(e)}
             ></input>

@@ -89,8 +89,7 @@ header > p {
 
 .picture {
   border-radius: 15px;
-  width: 70vw;
-  height: 70vw;
+  height: 40vh;
 }
 
 footer {
