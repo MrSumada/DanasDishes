@@ -105,6 +105,10 @@ footer {
 
 @media screen and (max-width: 550px) {
 
+  header {
+    padding: 0;
+  }
+
   .nav-tabs {
     
     margin: 0 5vw;
