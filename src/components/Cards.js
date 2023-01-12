@@ -81,8 +81,8 @@ const Cards = () => {
                 className="card" id="card-1">
                     <div className="step">
                         <p>
-                            <input type="checkbox" id="step-1"></input>
-                            <label for="step-1">
+                            <input type="checkbox" id="step-0"></input>
+                            <label for="step-0">
                             Pie will be cooked on oven’s middle rack. Place 1 rack in the bottom half of the oven, under the rack where pie will be cooked. Put a large piece of heavy-duty aluminum foil on lower rack, and turn all edges up 1 inch like a large sheet pan. Make sure it is larger than the pie, so the foil will catch any drippings. Preheat oven to 375.
                             </label>
                         </p>
