@@ -16,7 +16,7 @@ const Cards = () => {
             <div>
                 {/* NAV BAR for the recipe */}
                 <div className="nav-tabs">
-                    <div className={`nav ${(Tab==="Story") ? "active" : ""}`} id="Story" onClick={switchTab}>Story</div>
+                    <div className={`nav ${(Tab==="Story") ? "active" : ""}`} id="Story" onClick={switchTab}>Background</div>
                     <div className={`nav ${(Tab==="Ingredients") ? "active" : ""}`} id="Ingredients" onClick={switchTab}>Ingredients</div>
                     <div className={`nav ${(Tab==="Steps") ? "active" : ""}`} id="Steps" onClick={switchTab}>Steps</div>
                     <div className={`nav ${(Tab==="Images") ? "active" : ""}`} id="Images" onClick={switchTab}>Images</div>
