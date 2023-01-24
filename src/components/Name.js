@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 
-const Name = (prop) => {
-    
-    const [recipeName, setRecipeName] = useState("Deep-Dish Apple Pie")
-
+const Name = ( {recipe} ) => {
     return (
-        <h2>{recipeName}</h2>
+        <h2>{recipe.name}</h2>
     )
 }
 

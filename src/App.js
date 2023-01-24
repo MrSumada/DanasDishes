@@ -5,11 +5,15 @@ import Cards from './components/Cards'
 import Bio from './components/Bio';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import piePicture from "./assets/images/IMG_1341.jpg"
 
 function App() {
 
   let recipe = {
-    story: "Merry Christmas, Mommy!  🎄",
+    name: "Deep-Dish Apple Pie",
+    difficulty: "Medium",
+    time: "2 hours",
+    story: "Merry Christmas, Mother!  🎄",
     ingredients: [
       {
         quantity: `2 to 2 ½ c.`,
@@ -47,13 +51,39 @@ function App() {
         quantity: `2 T.`,
         name:`Crust for Deep-Dish 2-Crust pie (see recipe)`
       }
+    ],
+    steps: [
+      {
+        step: `Pie will be cooked on oven’s middle rack. Place 1 rack in the bottom half of the oven, under the rack where pie will be cooked. Put a large piece of heavy-duty aluminum foil on lower rack, and turn all edges up 1 inch like a large sheet pan. Make sure it is larger than the pie, so the foil will catch any drippings. Preheat oven to 375.`
+      },
+      {
+        step: `Mix sugar, flours, salt and spices well. Set aside.`
+      },
+      {
+        step: `Roll out bottom crust, fit into pan. Cover all surfaces with plastic wrap. Roll out top crust, leave on board covered with plastic wrap.`
+      },
+      {
+        step: `Peel and core apples. Cut 1/4” thick. Place in a large bowl. Add sugar mixture and toss to coat all pieces. Turn into bottom crust, making sure slices are lying flat to allow a minimum of air pockets. Dot with butter. Run fingers under water, and wet all around top edge of crust. Place top crust over. Trim all edges with about 1” overhang from edge of rim, pressing top crust onto bottom crust. Roll overhang under itself to create a standing edge on top of pie rim. Flute with knuckles.`
+      },
+      {
+        step: `Cut decorative slits on top crust to allow steam to escape. Sprinkle top with sugar if desired. Bake 1 hour 10 minutes to 1 hour 30 minutes, until a knife inserted through slits goes in without resistance—but check at 30, 45, and minutes. If fluted edges are browning too quickly, cover with strips of foil.`
+      },
+      {
+        step: `Cool at least 30 minutes before serving. Refrigerate leftovers.`
+      }
+    ],
+    images: [
+      {
+        picture: piePicture,
+        alt: "pie"
+      }
     ]
   }
 
   return (
     <div className="App">
       <Header></Header>
-      <Name></Name>
+      <Name recipe={recipe}></Name>
       <Cards recipe={recipe}></Cards>
       <Bio></Bio>
       <Footer></Footer>

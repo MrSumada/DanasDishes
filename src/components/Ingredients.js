@@ -2,25 +2,27 @@ import React, { useState } from "react";
 
 const Ingredients = ({ recipe }) => {
     
-    // const [boxChecked, setBoxChecked] = useState(false);
+    const [boxChecked, setBoxChecked] = useState(false);
     
-    // function handleChange(e) {
-    //     let isChecked = e.target.checked
-    //     console.log("checked")
-    //     if (e.target.checked) {
-    //         setBoxChecked(true);
-    //     } else {
-    //         setBoxChecked(false);
-    //     }
-    // }
+    function handleChange(e) {
+        let isChecked = e.target.checked
+        
+        if (e.target.checked) {
+            console.log(e.target.id, " checked")
+            setBoxChecked(true);
+        } else {
+            console.log(e.target.id, "unchecked")
+            setBoxChecked(false);
+        }
+    }
 
     return (recipe.ingredients.map((ingredient, i) => 
         <p key={i}>
-            <input type="checkbox" id={`step-${i}`} 
+            <input type="checkbox" id={`ingredient-${i}`} 
             // checked={if (boxChecked) ? true : false} 
-            // onChange={e => handleChange(e)}
+            onChange={e => handleChange(e)}
             ></input>
-            <label for={`step-${i}`}><span className="amount">{recipe.ingredients[i].quantity}</span>{recipe.ingredients[i].name}</label>
+            <label for={`ingredient-${i}`}><span className="amount">{recipe.ingredients[i].quantity}</span>{recipe.ingredients[i].name}</label>
         </p>
         )
     )
