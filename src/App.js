@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Name from './components/Name';
 import Cards from './components/Cards'
