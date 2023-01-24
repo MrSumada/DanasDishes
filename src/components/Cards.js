@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Background from "./Background";
 import Ingredients from "./Ingredients";
 import Steps from "./Steps";
@@ -7,8 +7,19 @@ import Images from "./Images";
 const Cards = ({ recipe }) => {
 
     const [Tab, setTab ] = useState("Ingredients");
+    // const [storedTab, setStoredTab] = useState("Ingredients");
+    const storage = JSON.parse(localStorage.getItem(`Tab`));
+
+    useEffect(()=>{
+        if (storage) {
+            setTab(storage)
+        }
+        }, [])
+
+
     function switchTab (e) { 
         setTab(e.target.id) 
+        localStorage.setItem(`Tab`,  JSON.stringify(e.target.id));
     };
 
     return (
@@ -54,7 +65,7 @@ const Cards = ({ recipe }) => {
                 <div
                 style={{"display": `${(Tab==="Images") ? "flex" : "none"}`}}
                 className="card picture-container" id="card-4">
-                    <Images recipe={recipe} Tab={Tab} />
+                    <Images recipe={recipe} />
                 </div>
             </div>
         </div>

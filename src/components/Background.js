@@ -5,7 +5,7 @@ const Background = ({ recipe }) => {
 
     return (
         <p>
-            {recipe.story}
+            {recipe.background}
         </p>
        
     )

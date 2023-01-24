@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Step from "./Step";
 
 const Steps = ({ recipe }) => {
     
@@ -16,11 +17,7 @@ const Steps = ({ recipe }) => {
 
     return (recipe.steps.map((step, i) => 
         <p key={i}>
-            <input type="checkbox" id={`step-${i}`} 
-            // checked={if (boxChecked) ? true : false} 
-            // onChange={e => handleChange(e)}
-            ></input>
-            <label for={`step-${i}`}>{recipe.steps[i].step}</label>
+            <Step recipe={recipe} i={i}/>
         </p>
         )
     )
