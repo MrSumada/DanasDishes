@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import picture from "../assets/images/IMG_1341.jpg"
-import Ingredient from "./Ingredient";
+import Ingredients from "./Ingredients";
 
-const Cards = () => {
+const Cards = ({ recipe }) => {
 
     const [Tab, setTab ] = useState("Ingredients");
     function switchTab (e) { 
         setTab(e.target.id) 
-        console.log(Tab)
     };
 
     return (
@@ -27,49 +26,16 @@ const Cards = () => {
                 style={{"display": `${(Tab==="Story") ? "block" : "none"}`}}
                 className="card story-container" id="card-1">
                     <br />
-                    Merry Christmas, Mom!  🎄
+                    {recipe.story}
                 </div>
             </div>
-
 
             {/* INGREDIENTS for the Recipe */}
             <div>
                 <div
                 style={{"display": `${(Tab==="Ingredients") ? "block" : "none"}`}}
                 className="card ingredients-container" id="card-1">
-                    <Ingredient />
-                    <p>
-                        <input type="checkbox" id="ingredient-2"></input>
-                        <label for="ingredient-2"><span className="amount">1 ½ t.</span> Saigon cinnamon (or 2 t. less strong cinnamon)</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="ingredient-3"></input>
-                        <label for="ingredient-3"><span className="amount">¾ to 1 t</span> 1/3 of a nutmeg, grated—about ¾ to 1 t.</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="ingredient-4"></input>
-                        <label for="ingredient-4"><span className="amount">2 T.</span> flour</label>                    
-                    </p>
-                    <p>
-                        <input type="checkbox" id="ingredient-5"></input>
-                        <label for="ingredient-5"><span className="amount">2 T.</span> tapioca flour</label>                    
-                    </p>
-                    <p>
-                        <input type="checkbox" id="ingredient-6"></input> 
-                        <label for="ingredient-6"><span className="amount">3/4 t.</span> salt</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="ingredient-7"></input>
-                        <label for="ingredient-7"><span className="amount">12 to 14 c.</span> peeled, sliced green apples—Pippin or Granny Smith. Ripe apples will be less “apple” green and more yellow-green. They should also have a blush on one side. </label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="ingredient-8"></input>
-                        <label for="ingredient-8"><span className="amount">2 T.</span> butter</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" id="ingredient-9"></input>
-                        <label for="ingredient-9"><span className="amount"></span>Crust for Deep-Dish 2-Crust pie (see recipe)</label>
-                    </p>
+                    <Ingredients recipe={recipe} />
                 </div>
             </div>    
 
