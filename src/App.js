@@ -96,6 +96,94 @@ function App() {
     ]
   }
 
+  recipe = {
+    id: 0,
+    name: "Cap'n Crunch Cookies",
+    difficulty: "Easy",
+    time: "1 hours",
+    background: "Hi Sarah!",
+    ingredients: [
+      {
+        id: 0,
+        quantity: `1 c.`,
+        name:`Softened Butter`
+      },
+      {
+        id: 1,
+        quantity: `1 ½ c.`,
+        name:`Sugar`
+      },
+      {
+        id: 2,
+        quantity: `2`,
+        name:`Whole Eggs`
+      },
+      {
+        id: 3,
+        quantity: `2 T.`,
+        name:`Vanilla Paste`
+      },
+      {
+        id: 4,
+        quantity: `1 c.`,
+        name:`AP Flour`
+      },
+      {
+        id: 5,
+        quantity: `2 C.`,
+        name:`Pulverized Cap'n Crunch Cereal`
+      },
+      {
+        id: 6,
+        quantity: `1 ½ t.`,
+        name:`Cream of Tartar`
+      },
+      {
+        id: 7,
+        quantity: `½ t.`,
+        name:`Baking Soda`
+      },
+      {
+        id: 8,
+        quantity: `1 ½ t.`,
+        name:`Salt`
+      }
+    ],
+    steps: [
+      {
+        id: 0,
+        step: `Preheat oven to 350 degrees.`
+      },
+      {
+        id: 1,
+        step: `In a large mixing bowl, cream butter and sugar for 4-5 minutes until light and fluffy.  Scrape the sides of the bowl and add the eggs and vanilla. Cream for 1-2 minutes longer.`
+      },
+      {
+        id: 2,
+        step: `Pulverize about ⅔ of a 12 oz box of Cap'n Crunch Cereal in a food processor or blender until it becomes a powder.`
+      },
+      {
+        id: 3,
+        step: `Stir in flour, Cap'n Crunch, cream of tartar, baking soda, and salt, just until combined.`
+      },
+      {
+        id: 4,
+        step: `If time allows, wrap the dough and let refrigerate for 20-30 minutes.  Roll into small balls until round and smooth.`
+      },
+      {
+        id: 5,
+        step: `Place on a parchment paper-lined baking sheet. Bake for 12-15 minutes on the middle rack.  Let cool for several minutes on baking sheet before removing from the pan.`
+      }
+    ],
+    images: [
+      {
+        id: 0,
+        picture: "https://pbs.twimg.com/profile_images/1311311775862853636/_kfB0Fl4_400x400.png",
+        alt: "pie"
+      }
+    ]
+  }
+
   return (
     <div className="App">
       <Header></Header>

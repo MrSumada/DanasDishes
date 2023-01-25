@@ -25,8 +25,7 @@ const Ingredient = ({ recipe, i }) => {
             console.log(e.target.id, "unchecked")
             setBoxChecked(false);
             localStorage.setItem(`ingredient-${i}`, false);
-        }
-        
+        }   
     }
 
     return (
@@ -35,7 +34,7 @@ const Ingredient = ({ recipe, i }) => {
             checked={storedChecked}
             onChange={e => handleChange(e)}
             ></input>
-            <label for={`ingredient-${i}`}><span className="amount">{recipe.ingredients[i].quantity}</span>{recipe.ingredients[i].name}</label>
+            <label for={`ingredient-${i}`}><span className="amount">{recipe.ingredients[i].quantity} </span>{recipe.ingredients[i].name}</label>
         </p>
     )
 }
