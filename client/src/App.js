@@ -106,7 +106,7 @@ function App() {
       {
         id: 0,
         quantity: `1 c.`,
-        name:`Softened Butter`
+        name:`Softened Salted Butter`
       },
       {
         id: 1,
