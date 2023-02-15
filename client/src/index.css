@@ -92,6 +92,13 @@ header > p {
   height: 40vh;
 }
 
+.upload {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center
+}
+
 footer {
   margin-bottom: 1vh;
   font-size: 1.5em;
