@@ -12,9 +12,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Name recipe={recipe}></Name>
-      <Cards recipe={recipe}></Cards>
-      <Bio></Bio>
+      <Recipe></Recipe>
       <Footer></Footer>
     </div>
   );

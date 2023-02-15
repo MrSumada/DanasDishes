@@ -1,7 +1,7 @@
-import Name from './components/Name';
-import Cards from './components/Cards'
-import Bio from './components/Bio';
-import piePicture from "./assets/images/IMG_1341.jpg"
+import Name from '../components/Name';
+import Cards from '../components/Cards'
+import Bio from '../components/Bio';
+import piePicture from "../assets/images/IMG_1341.jpg"
 
 export default function Recipe() {
 
