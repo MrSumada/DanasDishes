@@ -96,7 +96,19 @@ header > p {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center
+  align-items: center;
+  gap: 3vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.ingredient-list, .step-list, .image-list {
+  display: flex;
+  width: 50vw;
+  justify-content: center;
+  gap: 2vw;
+  font-variant-numeric: tabular-nums;
+  
 }
 
 footer {

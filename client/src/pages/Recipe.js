@@ -98,7 +98,7 @@ export default function Recipe() {
         name: "Cap'n Crunch Cookies",
         difficulty: "Easy",
         time: "1 hours",
-        background: "Hi Sarah!",
+        background: "I update this all the time!",
         ingredients: [
           {
             id: 0,
@@ -117,7 +117,7 @@ export default function Recipe() {
           },
           {
             id: 3,
-            quantity: `2 T.`,
+            quantity: `2 t.`,
             name:`Vanilla Paste`
           },
           {
@@ -127,7 +127,7 @@ export default function Recipe() {
           },
           {
             id: 5,
-            quantity: `2 C.`,
+            quantity: `2 c.`,
             name:`Pulverized Cap'n Crunch Cereal`
           },
           {
@@ -176,7 +176,7 @@ export default function Recipe() {
           {
             id: 0,
             picture: "https://pbs.twimg.com/profile_images/1311311775862853636/_kfB0Fl4_400x400.png",
-            alt: "pie"
+            alt: "The Cap'n"
           }
         ]
       }
