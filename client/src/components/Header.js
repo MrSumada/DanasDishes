@@ -12,6 +12,7 @@ const Header = ({ recipes, RecipeNum, setRecipeNum }) => {
     const changeRecipe = (e) => {
         setModalRecipe(e.target.value)
         setRecipeNum(e.target.value)
+        localStorage.clear();
     }
 
     useEffect(() => {

@@ -48,7 +48,7 @@ function App() {
 
   
 
-  let recipes = [{
+  const recipes = [{
     _id: 0,
     name: "Deep-Dish Apple Pie",
     difficulty: "Medium",
@@ -223,7 +223,7 @@ function App() {
     ]
   }]
 
-  const [RecipeNum, setRecipeNum] = useState(1)
+  const [RecipeNum, setRecipeNum] = useState(0)
 
   let recipe = recipes[RecipeNum]
 
@@ -235,8 +235,8 @@ function App() {
         <div className='App'>
         <Header recipes={recipes} RecipeNum={RecipeNum} setRecipeNum={setRecipeNum}/>
         <Routes>
-          <Route exact path="/*"  element={<Recipe recipe={recipe}/>} />
           <Route exact path="/upload" element={<Upload/>} />
+          <Route exact path="/*"  element={<Recipe recipe={recipe}/>} />
         </Routes>
         <Footer />
         </div>
