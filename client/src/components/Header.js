@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-const Header = ({ recipes, RecipeNum, setRecipeNum }) => {
+const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
     
     const [Modal, setModal] = useState(false);
     const [ModalRecipe, setModalRecipe] = useState("");
 
     const toggleModal = () => {
         setModal(Modal => !Modal)
+    }
+    const toggleUpload = () => {
+        if (Page === "Home") { setPage("Upload") }
+        if (Page === "Upload") { setPage("Home") }
     }
 
     const changeRecipe = (e) => {
@@ -24,6 +28,8 @@ const Header = ({ recipes, RecipeNum, setRecipeNum }) => {
             <div id="page-header">
                 <h1>Dana's <span>Dishes</span></h1>
                 <div id="selector" onClick={toggleModal}></div>
+                {Page === "Home" ? <div id="upload-toggle" onClick={toggleUpload}>Upload</div>
+                : <div id="upload-toggle" onClick={toggleUpload}>Home</div> }
             </div>
             {Modal ?( 
                 <div className="selector-modal">

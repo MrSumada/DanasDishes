@@ -51,7 +51,7 @@ header > p {
 #selector {
   position: absolute;
   z-index: 3;
-  right: max(5vw, 30px);
+  left: max(5vw, 30px);
   top: 30px;
   background-color: var(--mid-color);
   border-radius: 50px;
@@ -59,6 +59,23 @@ header > p {
   height: 5vw;
   max-width: 50px;
   max-height: 50px;
+}
+
+#upload-toggle {
+  
+  color: var(--mid-off-color);
+  position: absolute;
+  z-index: 3;
+  right: max(5vw, 30px);
+  top: 30px;
+  background-color: var(--mid-color);
+  border-radius: 5px;
+  /* width: 5vw; */
+  /* height: 5vw; */
+  border: solid 5px var(--mid-color);
+  max-width: 50px;
+  max-height: 50px;
+  
 }
 
 .selector-modal {

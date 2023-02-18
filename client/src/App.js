@@ -223,27 +223,39 @@ function App() {
     ]
   }]
 
+  const [Page, setPage] = useState("Home")
   const [RecipeNum, setRecipeNum] = useState(0)
 
   let recipe = recipes[RecipeNum]
 
+  // return (
+  //   <ApolloProvider client={client}>
+  //     <Router
+  //     basename='/DanasDishes/'
+  //     >
+  //       <div className='App'>
+  //       <Header recipes={recipes} RecipeNum={RecipeNum} setRecipeNum={setRecipeNum}/>
+  //       <Routes>
+  //         <Route exact path="/upload" element={<Upload/>} />
+  //         <Route exact path="/*"  element={<Recipe recipe={recipe}/>} />
+  //       </Routes>
+  //       <Footer />
+  //       </div>
+        
+  //     </Router>
+  //   </ApolloProvider>
+  // );
+
   return (
-    <ApolloProvider client={client}>
-      <Router
-      basename='/DanasDishes'
-      >
         <div className='App'>
-        <Header recipes={recipes} RecipeNum={RecipeNum} setRecipeNum={setRecipeNum}/>
-        <Routes>
-          <Route exact path="/upload" element={<Upload/>} />
-          <Route exact path="/*"  element={<Recipe recipe={recipe}/>} />
-        </Routes>
+        <Header recipes={recipes} RecipeNum={RecipeNum} setRecipeNum={setRecipeNum} Page={Page} setPage={setPage}/>
+        {Page === "Upload" ? (<Upload />) : ("")}
+        {Page === "Home" ? (<Recipe recipe={recipe}/>) : ("")}
         <Footer />
         </div>
-        
-      </Router>
-    </ApolloProvider>
   );
+
+
 }
 
 
