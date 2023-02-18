@@ -230,12 +230,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router
-      basename='/'
+      basename='/DanasDishes'
       >
         <div className='App'>
         <Header recipes={recipes} RecipeNum={RecipeNum} setRecipeNum={setRecipeNum}/>
         <Routes>
-          <Route exact path="/"  element={<Recipe recipe={recipe}/>} />
+          <Route exact path="/*"  element={<Recipe recipe={recipe}/>} />
           <Route exact path="/upload" element={<Upload/>} />
         </Routes>
         <Footer />
