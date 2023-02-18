@@ -16,9 +16,9 @@ const Steps = ({ recipe }) => {
     // }
 
     return (recipe.steps.map((step, i) => 
-        <p key={i}>
+        <div className="steps" key={i}>
             <Step recipe={recipe} i={i}/>
-        </p>
+        </div>
         )
     )
 }

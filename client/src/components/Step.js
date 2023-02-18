@@ -30,13 +30,13 @@ const Step = ({ recipe, i }) => {
     }
 
     return (
-        <p key={i}>
+        <div className="step" key={i}>
             <input type="checkbox" id={`step-${i}`} 
             checked={storedStep}
             onChange={e => handleChange(e)}
             ></input>
             <label for={`step-${i}`}>{recipe.steps[i].step}</label>
-        </p>
+        </div>
     )
 }
 

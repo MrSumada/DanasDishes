@@ -29,13 +29,13 @@ const Ingredient = ({ recipe, i }) => {
     }
 
     return (
-        <p key={i}>
+        <div className="ingredient" key={i}>
             <input type="checkbox" id={`ingredient-${i}`} 
             checked={storedChecked}
             onChange={e => handleChange(e)}
             ></input>
             <label for={`ingredient-${i}`}><span className="amount">{recipe.ingredients[i].quantity} </span>{recipe.ingredients[i].name}</label>
-        </p>
+        </div>
     )
 }
 

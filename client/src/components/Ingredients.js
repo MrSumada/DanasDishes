@@ -4,9 +4,9 @@ import Ingredient from "./Ingredient";
 const Ingredients = ({ recipe }) => {
 
     return (recipe.ingredients.map((ingredient, i) => 
-        <p key={i}>
+        <div key={i}>
             <Ingredient recipe={recipe} i={i} />
-        </p>
+        </div>
         )
     )
 }

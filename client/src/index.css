@@ -43,6 +43,47 @@ header > p {
   
 }
 
+#page-header {
+  display: flex;
+  justify-content: center;
+}
+
+#selector {
+  position: absolute;
+  z-index: 3;
+  right: max(5vw, 30px);
+  top: 30px;
+  background-color: var(--mid-color);
+  border-radius: 50px;
+  width: 5vw;
+  height: 5vw;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.selector-modal {
+  /* display: none; */
+  position: fixed;
+  vertical-align: middle;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: rgba(50, 14, 59, .8);
+}
+
+.modal-content {
+  display: flex;
+  z-index: 2;
+  height: 100%;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 25%;
+}
+
 .card {
   background-color: var(--light-off-color);
   padding: 2vh 2vw;
@@ -79,6 +120,10 @@ header > p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.ingredient, .step {
+  padding: 10px 20px;
 }
 
 .picture-container {
