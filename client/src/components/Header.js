@@ -9,8 +9,14 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
         setModal(Modal => !Modal)
     }
     const toggleUpload = () => {
-        if (Page === "Home") { setPage("Upload") }
-        if (Page === "Upload") { setPage("Home") }
+        if (Page === "Home") { 
+            setPage("Upload")
+            setModal(false)
+        }
+        if (Page === "Upload") { 
+            setPage("Home") 
+            setModal(false)
+        }
     }
 
     const changeRecipe = (e) => {
@@ -27,7 +33,7 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
         <header>
             <div id="page-header">
                 <h1>Dana's <span>Dishes</span></h1>
-                <div id="selector" onClick={toggleModal}></div>
+                {Page === "Home" ? <div id="selector" onClick={toggleModal}>Recipes</div> : ("")}
                 {Page === "Home" ? <div id="upload-toggle" onClick={toggleUpload}>Upload</div>
                 : <div id="upload-toggle" onClick={toggleUpload}>Home</div> }
             </div>

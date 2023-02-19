@@ -34,9 +34,13 @@ export default function Upload() {
             <div id="upload-time">
                 <label>Time: </label>
                 <label>Hours: </label>
-                <input type="number" id="hours" />
+                <input type="number" id="hours"
+                min="0"
+                max="50"/>
                 <label>Minutes: </label>
-                <input type="number" id="minutes" />
+                <input type="number" id="minutes" 
+                min="0"
+                max="59"/>
             </div>
             <div id="upload-background">
                 <label for="background">Background: </label>

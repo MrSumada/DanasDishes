@@ -136,7 +136,7 @@ function App() {
     ]
   }, 
   {
-    _id: 0,
+    _id: 1,
     name: "Cap'n Crunch Cookies",
     difficulty: "Easy",
     time: "1 hours",
@@ -221,7 +221,72 @@ function App() {
         alt: "The Cap'n"
       }
     ]
-  }]
+  },
+  {
+    _id: 2,
+    name: "Cottage Cheese Pancakes",
+    difficulty: "Easy",
+    time: "20 minutes",
+    background: "They're good for you too!",
+    ingredients: [
+      {
+        id: 0,
+        quantity: `6 eggs`,
+        name:`Eggs`
+      },
+      {
+        id: 1,
+        quantity: `3 T.`,
+        name:`Water`
+      },
+      {
+        id: 2,
+        quantity: `½ t.`,
+        name:`Salt`
+      },
+      {
+        id: 3,
+        quantity: `1 pint`,
+        name:`Non-fat Cottage Cheese`
+      },
+      {
+        id: 4,
+        quantity: `3/4 c.`,
+        name:`Flour`
+      }
+    ],
+    steps: [
+      {
+        id: 0,
+        step: `Beat eggs, water and salt with whisk or hand mixer.`
+      },
+      {
+        id: 1,
+        step: `Add cottage cheese, mix well.`
+      },
+      {
+        id: 2,
+        step: `Stir in flour, mix just until blended.`
+      },
+      {
+        id: 3,
+        step: `Fry on preheated non-stick pan or griddle, lightly sprayed with oil, until browned on both sides.`
+      },
+      {
+        id: 4,
+        step: `Serve with maple syrup, or lemon juice and confectioners sugar.`
+      }
+    ],
+    images: [
+      {
+        id: 0,
+        picture: `https://hips.hearstapps.com/hmg-prod/images/cottage-cheese-pancakes-blueberry-compote-1520271796.jpg?crop=1.00xw:0.668xh;0,0&resize=1200:*`,
+        alt: `Cottage Cheese Pancakes with Blueberry Compote`
+      }
+    ]
+  }
+
+]
 
   const [Page, setPage] = useState("Home")
   const [RecipeNum, setRecipeNum] = useState(0)
