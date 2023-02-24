@@ -15,6 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--light-color);
   color: var(--darkest-color);
+  max-height: 100svh;
 }
 
 code {
@@ -26,7 +27,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-height: 100px;
+  max-height: 120px;
   margin-top: 0;
   background-color: var(--mid-off-color);
   color: var(--light-off-color);
@@ -48,11 +49,11 @@ select {
   border-radius: 20px;
 }
 
-option {
+/* option {
   height: 100px;
   padding: 70px;
   border-radius: 20px;
-}
+} */
 
 input, textarea {
   margin-left: 10px;
@@ -230,7 +231,7 @@ footer {
   }
 
   #selector, #upload-toggle {
-    font-size: .4em;
+    font-size: .6em;
   }
 
   .card {
