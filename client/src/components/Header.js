@@ -23,7 +23,12 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
         setModalRecipe(e.target.value)
         setRecipeNum(e.target.value)
         localStorage.clear();
-    }
+        
+    } 
+
+    useEffect(() => {
+        localStorage.setItem(`Recipe`, RecipeNum); 
+    }, [RecipeNum])
 
     useEffect(() => {
         setModal(false)
@@ -33,7 +38,7 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
         <header>
             <div id="page-header">
                 <h1>Dana's <span>Dishes</span></h1>
-                {Page === "Home" ? <div id="selector" onClick={toggleModal}>Recipes</div> : ("")}
+                {Page === "Home" ? <div id="selector" onClick={toggleModal}>{Modal ? "X" : "Recipes"}</div> : ("")}
                 {Page === "Home" ? <div id="upload-toggle" onClick={toggleUpload}>Upload</div>
                 : <div id="upload-toggle" onClick={toggleUpload}>Home</div> }
             </div>

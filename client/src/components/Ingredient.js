@@ -1,40 +1,41 @@
 import React, { useState, useEffect } from "react";
 
-const Ingredient = ({ recipe, i }) => {
+const Ingredient = ({ recipe, j }) => {
     
-    const storedChecked = JSON.parse(localStorage.getItem(`ingredient-${i}`));
-    const [boxChecked, setBoxChecked] = useState(false);
+    const storedChecked = JSON.parse(localStorage.getItem(`recipe-${recipe._id}-ingredient-${j}`));
+    // const [boxChecked, setBoxChecked] = useState(false);
 
     useEffect(()=>{
         if (storedChecked === true) {
             console.log("storedChecked: ", storedChecked)
-            setBoxChecked(storedChecked)
+            // setBoxChecked(true)
+            
         }
         }, [])
     
     
     
     function handleChange(e) {
-        let isChecked = e.target.checked
         
         if (e.target.checked) {
             console.log(e.target.id, " checked")
-            setBoxChecked(true);
-            localStorage.setItem(`ingredient-${i}`, true);
+            // setBoxChecked(true);
+            localStorage.setItem(`recipe-${recipe._id}-ingredient-${j}`, true);
         } else {
             console.log(e.target.id, "unchecked")
-            setBoxChecked(false);
-            localStorage.setItem(`ingredient-${i}`, false);
+            // setBoxChecked(false);
+            localStorage.setItem(`recipe-${recipe._id}-ingredient-${j}`, false);
         }   
     }
 
     return (
-        <div className="ingredient" key={i}>
-            <input type="checkbox" id={`ingredient-${i}`} 
+        <div className="ingredient" key={j}>
+            <input type="checkbox" id={`ingredient-${j}`} 
             checked={storedChecked}
+            // value={boxChecked}
             onChange={e => handleChange(e)}
             ></input>
-            <label for={`ingredient-${i}`}><span className="amount">{recipe.ingredients[i].quantity} </span>{recipe.ingredients[i].name}</label>
+            <label for={`ingredient-${j}`}><span className="amount">{recipe.ingredients[j].quantity} </span>{recipe.ingredients[j].name}</label>
         </div>
     )
 }

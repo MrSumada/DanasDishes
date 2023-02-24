@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -231,7 +231,7 @@ function App() {
     ingredients: [
       {
         id: 0,
-        quantity: `6 eggs`,
+        quantity: `6`,
         name:`Eggs`
       },
       {
@@ -285,11 +285,18 @@ function App() {
       }
     ]
   }
-
 ]
 
   const [Page, setPage] = useState("Home")
   const [RecipeNum, setRecipeNum] = useState(0)
+
+  let storedRecipe = localStorage.getItem(`Recipe`); 
+
+  useEffect(() => {
+    if (storedRecipe) {
+      setRecipeNum(storedRecipe);
+    }
+}, [])
 
   let recipe = recipes[RecipeNum]
 
@@ -310,10 +317,16 @@ function App() {
   //     </Router>
   //   </ApolloProvider>
   // );
+  
 
   return (
         <div className='App'>
-        <Header recipes={recipes} RecipeNum={RecipeNum} setRecipeNum={setRecipeNum} Page={Page} setPage={setPage}/>
+        <Header 
+          recipes={recipes} 
+          RecipeNum={RecipeNum}  
+          setRecipeNum={setRecipeNum} 
+          Page={Page} 
+          setPage={setPage}/>
         {Page === "Upload" ? (<Upload />) : ("")}
         {Page === "Home" ? (<Recipe recipe={recipe}/>) : ("")}
         <Footer />

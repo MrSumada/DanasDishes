@@ -3,9 +3,9 @@ import Ingredient from "./Ingredient";
 
 const Ingredients = ({ recipe }) => {
 
-    return (recipe.ingredients.map((ingredient, i) => 
-        <div key={i}>
-            <Ingredient recipe={recipe} i={i} />
+    return (recipe.ingredients.map((ingredient, j) => 
+        <div key={j}>
+            <Ingredient recipe={recipe} j={j} />
         </div>
         )
     )
