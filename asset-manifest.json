@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/DanasDishes/static/css/main.f96a1e62.css",
-    "main.js": "/DanasDishes/static/js/main.dcf69614.js",
+    "main.css": "/DanasDishes/static/css/main.3f2d21b7.css",
+    "main.js": "/DanasDishes/static/js/main.f7ce2ee4.js",
     "static/js/787.afaa0de1.chunk.js": "/DanasDishes/static/js/787.afaa0de1.chunk.js",
     "static/media/IMG_1341.jpg": "/DanasDishes/static/media/IMG_1341.055e6a70f0af8d5684a7.jpg",
     "index.html": "/DanasDishes/index.html",
-    "main.f96a1e62.css.map": "/DanasDishes/static/css/main.f96a1e62.css.map",
-    "main.dcf69614.js.map": "/DanasDishes/static/js/main.dcf69614.js.map",
+    "main.3f2d21b7.css.map": "/DanasDishes/static/css/main.3f2d21b7.css.map",
+    "main.f7ce2ee4.js.map": "/DanasDishes/static/js/main.f7ce2ee4.js.map",
     "787.afaa0de1.chunk.js.map": "/DanasDishes/static/js/787.afaa0de1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f96a1e62.css",
-    "static/js/main.dcf69614.js"
+    "static/css/main.3f2d21b7.css",
+    "static/js/main.f7ce2ee4.js"
   ]
 }
