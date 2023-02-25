@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
     
     const [Modal, setModal] = useState(false);
-    const [ModalRecipe, setModalRecipe] = useState("");
 
     const toggleModal = () => {
         setModal(Modal => !Modal)
@@ -20,19 +19,20 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
     }
 
     const changeRecipe = (e) => {
-        setModalRecipe(e.target.value)
-        setRecipeNum(e.target.value)
         localStorage.clear();
+        setRecipeNum(e.target.value)
+        setTimeout(window.location.reload(), 10)
         
     } 
 
     useEffect(() => {
         localStorage.setItem(`Recipe`, RecipeNum); 
+        setModal(false)
     }, [RecipeNum])
 
-    useEffect(() => {
-        setModal(false)
-    }, [ModalRecipe])
+    // useEffect(() => {
+    //     setModal(false)
+    // }, [RecipeNum])
 
     return (
         <header>
@@ -45,7 +45,7 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
             {Modal ?( 
                 <div className="selector-modal">
                     <div className="modal-content">
-                        <select id="recipe-selector" onChange={changeRecipe} value={ModalRecipe} defaultValue={RecipeNum}>
+                        <select id="recipe-selector" onChange={changeRecipe} value={RecipeNum} defaultValue={RecipeNum}>
                             {recipes.map((_, i) => (
                                 <option key={i} value={i}>{recipes[i].name}</option>
                             ))}

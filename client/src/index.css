@@ -68,7 +68,7 @@ input, textarea {
 }
 
 #selector, #upload-toggle {
-  color: var(--mid-off-color);
+  color: var(--darkest-color);
   position: absolute;
   top: 30px;
   background-color: var(--mid-color);
