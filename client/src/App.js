@@ -284,6 +284,101 @@ function App() {
         alt: `Cottage Cheese Pancakes with Blueberry Compote`
       }
     ]
+  },
+  {
+    _id: 3,
+    name: "Tasty's Chocolate Chip Cookies",
+    difficulty: "Easy",
+    time: "30 minutes",
+    background: "This is Tasty's Recipe. It's very good! https://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies",
+    ingredients: [
+      {
+        id: 0,
+        quantity: `½ c`,
+        name:`Granulated Sugar`
+      },
+      {
+        id: 1,
+        quantity: `3/4 c.`,
+        name:`Brown Sugar, packed`
+      },
+      {
+        id: 2,
+        quantity: `1 t.`,
+        name:`Salt`
+      },
+      {
+        id: 3,
+        quantity: `½ c.`,
+        name:`Butter, melted`
+      },
+      {
+        id: 4,
+        quantity: `1`,
+        name:`Egg`
+      },
+      {
+        id: 5,
+        quantity: `1 t.`,
+        name: `Vanilla Extract`
+      },
+      {
+        id: 6,
+        quantity: `1 1/4 c.`,
+        name: `AP Flour`
+      },
+      {
+        id: 7,
+        quantity: `½ t.`,
+        name: `Baking Soda`
+      },
+      {
+        id: 8,
+        quantity: `8 oz`,
+        name: `Semi-Sweet and Dark Chocolates`
+      }
+    ],
+    steps: [
+      {
+        id: 0,
+        step: `In a large bowl, whisk together the sugars, salt, and butter until a paste forms with no lumps.`
+      },
+      {
+        id: 1,
+        step: `Whisk in the egg and vanilla, beating until light ribbons fall off the whisk and remain for a short while before falling back into the mixture.`
+      },
+      {
+        id: 2,
+        step: `Sift in the flour and baking soda, then fold the mixture with a spatula (Be careful not to overmix, which would cause the gluten in the flour to toughen resulting in cakier cookies).`
+      },
+      {
+        id: 3,
+        step: `Fold in the chocolate chunks, then chill the dough for at least 30 minutes. For a more intense toffee-like flavor and deeper color, chill the dough overnight. The longer the dough rests, the more complex its flavor will be.`
+      },
+      {
+        id: 4,
+        step: `Preheat oven to 350°F (180°C). Line a baking sheet with parchment paper.`
+      },
+      {
+        id: 5,
+        step: `Scoop the dough with an ice-cream scoop onto a parchment paper-lined baking sheet, leaving at least 4 inches (10 cm) of space between cookies and 2 inches (5 cm) of space from the edges of the pan so that the cookies can spread evenly.`
+      },
+      {
+        id: 6,
+        step: `Bake for 12-15 minutes, or until the edges have started to barely brown.`
+      },
+      {
+        id: 7,
+        step: `Cool completely before serving.`
+      }
+    ],
+    images: [
+      {
+        id: 0,
+        picture: `https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/62298.jpg`,
+        alt: `Alvin Zhou's Amazing Cookies`
+      }
+    ]
   }
 ]
 
