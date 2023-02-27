@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Select from 'react-select'
 
 const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
     
@@ -19,11 +20,18 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
     }
 
     const changeRecipe = (e) => {
+        console.log(e.value)
         localStorage.clear();
-        setRecipeNum(e.target.value)
+        setRecipeNum(e.value)
         setTimeout(window.location.reload(), 10)
         
     } 
+
+    let options = [];
+    for (let i = 0; i < recipes.length; i++){
+        options.push({value: i, label: recipes[i].name})
+    }
+    
 
     useEffect(() => {
         localStorage.setItem(`Recipe`, RecipeNum); 
@@ -45,11 +53,21 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
             {Modal ?( 
                 <div className="selector-modal">
                     <div className="modal-content">
-                        <select id="recipe-selector" onChange={changeRecipe} value={RecipeNum} defaultValue={RecipeNum}>
+                        {/* <select id="recipe-selector" onChange={changeRecipe} value={RecipeNum} defaultValue={RecipeNum}>
                             {recipes.map((_, i) => (
                                 <option key={i} value={i}>{recipes[i].name}</option>
                             ))}
-                        </select>
+                        </select> */}
+                        <Select 
+                            options={options} 
+                            onChange={changeRecipe} 
+                            value={RecipeNum} 
+                            defaultValue={RecipeNum}
+                            styles={{
+                                control: (styles, state) => ({...styles, backgroundColor: 'var(--light-color)', borderColor: state.isFocused ? 'var(--mid-color)' : 'var(--darkest-color)'}),
+                                option: (styles) => ({...styles, color: 'var(--darkest-color)', backgroundColor: 'var(--light-color)'}),
+                                }}
+                        />
                     </div>
                 </div>
                 ) : ("")}
