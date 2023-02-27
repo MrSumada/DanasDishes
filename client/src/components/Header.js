@@ -23,7 +23,7 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
         console.log(e.value)
         localStorage.clear();
         setRecipeNum(e.value)
-        setTimeout(window.location.reload(), 10)
+        setTimeout(window.location.reload(), 1)
         
     } 
 

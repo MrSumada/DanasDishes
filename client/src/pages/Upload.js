@@ -8,13 +8,13 @@ export default function Upload() {
     const [imagesNum, setImagesNum] = useState(1);
 
     const ingredientsChange = (e) => {
-        setIngredientsNum(parseInt(e.target.value));
+        setIngredientsNum(parseInt(e.target.value) || 0);
     } 
     const stepsChange = (e) => {
-        setStepsNum(parseInt(e.target.value));
+        setStepsNum(parseInt(e.target.value) || 0);
     } 
     const imagesChange = (e) => {
-        setImagesNum(parseInt(e.target.value));
+        setImagesNum(parseInt(e.target.value) || 0);
     } 
 
     return (
@@ -53,6 +53,7 @@ export default function Upload() {
                     max="50"
                     defaultValue={ingredientsNum} 
                     onChange={ingredientsChange}
+                    placeholder="0"
                 />
             </div>
             
@@ -74,6 +75,7 @@ export default function Upload() {
                     max="50"
                     defaultValue={stepsNum} 
                     onChange={stepsChange}
+                    placeholder="0"
                 />
             </div>
             <div id="upload-step-list">
@@ -92,6 +94,7 @@ export default function Upload() {
                     max="20"
                     defaultValue={imagesNum} 
                     onChange={imagesChange}
+                    placeholder="0"
                 />
             </div>
             <div id="upload-image-list">
