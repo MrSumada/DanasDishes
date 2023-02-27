@@ -1,5 +1,5 @@
 :root {
-  --light-color: #ffffff;
+  --light-color: #f0fafc;
   --light-off-color: #85c9da;
   --darkest-color: #320E3B;
   --mid-color: #ceade2;
@@ -191,8 +191,9 @@ textarea {
   justify-content: space-around;
   align-items: center;
   gap: 3dvh;
-  margin-top: 10dvh;
-  margin-bottom: 10dvh;
+  padding-top: 10dvh;
+  padding-bottom: 10dvh;
+  background-color: var(--light-off-color);
 }
 
 #upload-background, .ingredient-list, .step-list, .image-list {

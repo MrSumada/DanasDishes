@@ -424,7 +424,8 @@ function App() {
           setPage={setPage}/>
         {Page === "Upload" ? (<Upload />) : ("")}
         {Page === "Home" ? (<Recipe recipe={recipe}/>) : ("")}
-        <Footer />
+        {Page === "Upload" ? (<Footer style="upload"/>) : (<Footer style="default"/>)}
+        
         </div>
   );
 
