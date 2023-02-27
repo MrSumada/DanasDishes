@@ -290,7 +290,7 @@ function App() {
     name: "Tasty's Chocolate Chip Cookies",
     difficulty: "Easy",
     time: "30 minutes",
-    background: "This is Tasty's Recipe. It's very good! https://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies",
+    background: "This is Tasty's Recipe. It's very good! <<<< >>>> https://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies",
     ingredients: [
       {
         id: 0,

@@ -20,11 +20,11 @@ export default function Upload() {
     return (
         <div className="upload">
             <div id="upload-title">
-                <label for="title"> Recipe Name: </label>
+                <label htmlFor="title"> Recipe Name: </label>
                 <input type="text" id="title"></input>
             </div>
             <div id="upload-difficulty">
-                <label for="difficulty">Difficulty: </label>
+                <label htmlFor="difficulty">Difficulty: </label>
                 <select id="difficulty" name="difficulty" defaultValue="easy">
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
@@ -32,19 +32,19 @@ export default function Upload() {
                 </select>
             </div>
             <div id="upload-time">
-                <label>Time: </label>
+                <label style={{marginRight: '3vw'}}>Time: </label>
                 <label>Hours: </label>
-                <input type="number" id="hours"
+                <input type="number" id="hours-input"
                 min="0"
                 max="50"/>
                 <label>Minutes: </label>
-                <input type="number" id="minutes" 
+                <input type="number" id="minutes-input" 
                 min="0"
                 max="59"/>
             </div>
             <div id="upload-background">
-                <label for="background">Background: </label>
-                <textarea></textarea>
+                <label htmlFor="background">Background: </label>
+                <textarea id="background-input"></textarea>
             </div>
             <div>
                 <label>Number of Ingredients: </label>
@@ -63,7 +63,7 @@ export default function Upload() {
                         <label>Quantity: </label>
                         <input type="text"></input>
                         <label>Ingredient: </label>
-                        <input type="text"></input>
+                        <input type="text" id={`ingredient-input-${i + 1}`}></input>
                     </div>
                 ))}
             </div>
@@ -81,14 +81,14 @@ export default function Upload() {
                     <div key={i} className="step-list" id={`step-upload-${i + 1}`}>
                         <label>{i+1}. </label>
                         <label>Step: </label>
-                        <textarea></textarea>
+                        <textarea id={`step-input-${i + 1}`}></textarea>
                     </div>
                 ))}
             </div>
             <div>
                 <label>Number of Images: </label>
                 <input type="number" id="images-num" 
-                    min="1"
+                    min="0"
                     max="20"
                     defaultValue={imagesNum} 
                     onChange={imagesChange}
@@ -99,7 +99,7 @@ export default function Upload() {
                     <div key={i} className="image-list" id={`image-upload-${i + 1}`}>
                         <label>{i+1}. </label>
                         <label>Image: </label>
-                        <input type="file"></input>
+                        <input type="url" id={`image-input-${i + 1}`}></input>
                     </div>
                 ))}
             </div>

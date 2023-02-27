@@ -46,7 +46,8 @@ header > p {
 
 select {
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 5px;
+  border: solid 1px black;
 }
 
 /* option {
@@ -58,8 +59,23 @@ select {
 input, textarea {
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 2px;;
   border-radius: 5px;
   padding: 5px;
+  border: solid 1px black;
+}
+
+input[type=text] {
+  width: 25vw;
+}
+
+input[type=text], input[type=number], input[type=file] {
+  min-height: 25px;
+}
+
+textarea {
+  width: 50vw;
+  height: 20vh;
 }
 
 #page-header {
@@ -179,13 +195,15 @@ input, textarea {
   margin-bottom: 10dvh;
 }
 
-.ingredient-list, .step-list, .image-list {
+#upload-background, .ingredient-list, .step-list, .image-list {
   display: flex;
-  width: 50vw;
   justify-content: center;
   gap: 2vw;
   font-variant-numeric: tabular-nums;
-  
+}
+
+.ingredient-list, .image-list {
+  width: 50vw;
 }
 
 footer {

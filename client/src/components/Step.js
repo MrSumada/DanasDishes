@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Step = ({ recipe, i }) => {
     
-    const storedStep = JSON.parse(localStorage.getItem(`recipe-${recipe._id}-step-${i}`));
+    const storedStep = JSON.parse(localStorage.getItem(`recipe-${recipe._id}-step-${i}`)) || false;
     const [boxChecked, setBoxChecked] = useState(false);
 
     useEffect(()=>{
@@ -32,10 +32,11 @@ const Step = ({ recipe, i }) => {
     return (
         <div className="step" key={i}>
             <input type="checkbox" id={`step-${i}`} 
-            checked={boxChecked}
+            checked={storedStep}
+            value={boxChecked}
             onChange={e => handleChange(e)}
             ></input>
-            <label for={`step-${i}`}>{recipe.steps[i].step}</label>
+            <label htmlFor={`step-${i}`}>{recipe.steps[i].step}</label>
         </div>
     )
 }
