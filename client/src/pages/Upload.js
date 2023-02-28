@@ -8,10 +8,10 @@ export default function Upload() {
     const [imagesNum, setImagesNum] = useState(1);
 
     const ingredientsChange = (e) => {
-        setIngredientsNum(parseInt(e.target.value) || 0);
+        setIngredientsNum(parseInt(e.target.value) || 1);
     } 
     const stepsChange = (e) => {
-        setStepsNum(parseInt(e.target.value) || 0);
+        setStepsNum(parseInt(e.target.value) || 1);
     } 
     const imagesChange = (e) => {
         setImagesNum(parseInt(e.target.value) || 0);
@@ -53,18 +53,22 @@ export default function Upload() {
                     max="50"
                     defaultValue={ingredientsNum} 
                     onChange={ingredientsChange}
-                    placeholder="0"
+                    placeholder="1"
                 />
             </div>
             
             <div id="upload-ingredient-list">
                 {new Array(ingredientsNum).fill(0).map((_, i) => (
                     <div key={i} className="ingredient-list" id={`ingredient-upload-${i + 1}`}>
-                        <label>{i+1}. </label>
-                        <label>Quantity: </label>
-                        <input type="text"></input>
-                        <label>Ingredient: </label>
-                        <input type="text" id={`ingredient-input-${i + 1}`}></input>
+                        <div>
+                            <label>{i+1}. </label>
+                            <label>Quantity: </label>
+                            <input type="text"></input>
+                        </div>
+                        <div>
+                            <label>Ingredient: </label>
+                            <input type="text" id={`ingredient-input-${i + 1}`}></input>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -75,7 +79,7 @@ export default function Upload() {
                     max="50"
                     defaultValue={stepsNum} 
                     onChange={stepsChange}
-                    placeholder="0"
+                    placeholder="1"
                 />
             </div>
             <div id="upload-step-list">

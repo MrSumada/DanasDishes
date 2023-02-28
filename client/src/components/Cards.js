@@ -16,26 +16,23 @@ const Cards = ({ recipe }) => {
         }
         }, [])
 
-
     function switchTab (e) { 
-        // if ((Tab === "Ingredients" && e.target.id === "Steps") || (Tab === "Steps" && e.target.id === "Ingredients")) {
-        //     setTab("Two");
-        //     localStorage.setItem(`Tab`, JSON.stringify("Two"));
-        // } else if (Tab === "Two" && e.target.id === "Ingredients") {
-        //     setTab("Ingredients");
-        //     localStorage.setItem(`Tab`, JSON.stringify("Steps"));
-        // } else if (Tab === "Two" && e.target.id === "Ingredients") {
-        //     setTab("Steps");
-        //     localStorage.setItem(`Tab`, JSON.stringify("Steps"));
-        // } else {
+        if ((Tab === "Ingredients" && e.target.id === "Steps") || (Tab === "Steps" && e.target.id === "Ingredients")) {
+            setTab("Two");
+            localStorage.setItem(`Tab`, JSON.stringify("Two"));
+            setTimeout(window.location.reload(), 0)
+        } else if (Tab === "Two" && e.target.id === "Ingredients") {
+            setTab("Ingredients");
+            localStorage.setItem(`Tab`, JSON.stringify("Ingredients"));
+            setTimeout(window.location.reload(), 0)
+        } else if (Tab === "Two" && e.target.id === "Steps") {
+            setTab("Steps");
+            localStorage.setItem(`Tab`, JSON.stringify("Steps"));
+            setTimeout(window.location.reload(), 0)
+        } else {
             setTab(e.target.id);
             localStorage.setItem(`Tab`, JSON.stringify(e.target.id)); 
-        // }
-        
-            
-        
-        
-        
+        }
     };
 
     return (
@@ -64,7 +61,7 @@ const Cards = ({ recipe }) => {
                 <div
                 style={{"display": `${(Tab==="Ingredients") ? "block" : "none"}`}}
                 className="card ingredients-container" id="card-1">
-                    <Ingredients recipe={recipe} />
+                    <Ingredients recipe={recipe} Tab={Tab}/>
                 </div>
             </div>    
 
@@ -73,7 +70,7 @@ const Cards = ({ recipe }) => {
                 <div 
                 style={{"display": `${(Tab==="Steps") ? "block" : "none"}`}}
                 className="card steps-container" id="card-1">
-                    <Steps recipe={recipe} />
+                    <Steps recipe={recipe} Tab={Tab}/>
                 </div>
             </div>
             {/* Pictures for the Recipe */}
@@ -85,18 +82,18 @@ const Cards = ({ recipe }) => {
                 </div>
             </div>
             {/* Two-Up Display for the Recipe */}
-            {/* <div>
+            <div>
                 <div
                 style={{"display": `${(Tab==="Two") ? "flex" : "none"}`}}
                 className="card two-up-container" id="cards-2-3">
                     <div className="half left">
-                        <Ingredients recipe={recipe} />
+                        <Ingredients recipe={recipe} Tab={Tab}/>
                     </div>
                     <div className="half right">
-                        <Steps recipe={recipe} />
+                        <Steps recipe={recipe} Tab={Tab}/>
                     </div>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }

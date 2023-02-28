@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from "react";
 
 const Ingredient = ({ recipe, j }) => {
-    
-    const storedChecked = JSON.parse(localStorage.getItem(`recipe-${recipe._id}-ingredient-${j}`)) || false;
     const [boxChecked, setBoxChecked] = useState(false);
 
     useEffect(()=>{
-        if (storedChecked === true) {
-            console.log("storedChecked: ", storedChecked)
-            setBoxChecked(true)
-            
-        }
-        }, [])
+        setBoxChecked(JSON.parse(localStorage.getItem(`recipe-${recipe._id}-ingredient-${j}`)))
+        }, [boxChecked])
     
     
     
     function handleChange(e) {
         
-        if (e.target.checked) {
-            console.log(e.target.id, " checked")
+        if (!boxChecked) {
+            console.log(e.target.id, " checked ")
             setBoxChecked(true);
             localStorage.setItem(`recipe-${recipe._id}-ingredient-${j}`, true);
         } else {
@@ -29,13 +23,24 @@ const Ingredient = ({ recipe, j }) => {
     }
 
     return (
+        // <div className="ingredient" key={j}>
+        //     <input type="checkbox" id={`ingredient-${j}`} 
+        //     checked={storedChecked}
+        //     value={boxChecked}
+        //     onChange={e => handleChange(e)}
+        //     ></input>
+        //     <label htmlFor={`ingredient-${j}`}><span className="amount">{recipe.ingredients[j].quantity} </span>{recipe.ingredients[j].name}</label>
+        // </div>
+
         <div className="ingredient" key={j}>
-            <input type="checkbox" id={`ingredient-${j}`} 
-            checked={storedChecked}
-            value={boxChecked}
-            onChange={e => handleChange(e)}
-            ></input>
-            <label htmlFor={`ingredient-${j}`}><span className="amount">{recipe.ingredients[j].quantity} </span>{recipe.ingredients[j].name}</label>
+            <div id={`ingredient-${j}`} 
+            className={`checkbox ${boxChecked ? "checked" : ""}`}
+            onClick={e => handleChange(e)}
+            >
+                <span className="amount">{recipe.ingredients[j].quantity} </span>
+                {recipe.ingredients[j].name}
+            </div>
+            <div></div>
         </div>
     )
 }

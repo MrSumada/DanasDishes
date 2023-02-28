@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from "react";
 
-const Step = ({ recipe, i }) => {
+const Step = ({ recipe, i, Tab }) => {
     
-    const storedStep = JSON.parse(localStorage.getItem(`recipe-${recipe._id}-step-${i}`)) || false;
     const [boxChecked, setBoxChecked] = useState(false);
 
     useEffect(()=>{
-        if (storedStep === true) {
-            console.log("storedStep: ", storedStep)
-            setBoxChecked(storedStep)
-        }
-        }, [])
-    
+            setBoxChecked(JSON.parse(localStorage.getItem(`recipe-${recipe._id}-step-${i}`)))
+        }, [boxChecked])
+
+    useEffect(()=>{
+        setBoxChecked(JSON.parse(localStorage.getItem(`recipe-${recipe._id}-step-${i}`)))
+    }, [Tab])
     
     
     function handleChange(e) {
-        let isChecked = e.target.checked
         
-        if (e.target.checked) {
+        if (!boxChecked) {
             console.log(e.target.id, " checked")
             setBoxChecked(true);
             localStorage.setItem(`recipe-${recipe._id}-step-${i}`, true);
@@ -31,12 +29,13 @@ const Step = ({ recipe, i }) => {
 
     return (
         <div className="step" key={i}>
-            <input type="checkbox" id={`step-${i}`} 
-            checked={storedStep}
-            value={boxChecked}
-            onChange={e => handleChange(e)}
-            ></input>
-            <label htmlFor={`step-${i}`}>{recipe.steps[i].step}</label>
+            <div id={`step-${i}`} 
+            className={`checkbox ${boxChecked ? "checked" : ""}`}
+            onClick={e => handleChange(e)}
+            >
+                {recipe.steps[i].step}
+            </div>
+            
         </div>
     )
 }

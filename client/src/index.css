@@ -201,10 +201,44 @@ textarea {
   justify-content: center;
   gap: 2vw;
   font-variant-numeric: tabular-nums;
+  
 }
 
 .ingredient-list, .image-list {
   width: 50vw;
+}
+
+[id^=ingredient-upload] {
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+@media screen and (max-width: 600px) {
+  [id^=ingredient-upload] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+.checkbox::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--light-color);
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: solid 1px var(--darkest-color);
+}
+
+.checked::before {
+  background-color: var(--darkest-color);
 }
 
 footer {
