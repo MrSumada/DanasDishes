@@ -4,6 +4,7 @@
   --darkest-color: #320E3B;
   --mid-color: #ceade2;
   --mid-off-color: #a04ec0;
+  --darkest-alpha: rgba(50, 14, 59, .9);
 }
 
 body {
@@ -16,6 +17,11 @@ body {
   background-color: var(--light-color);
   color: var(--darkest-color);
   max-height: 100svh;
+}
+@media screen and (min-height: 750px) {
+  body{
+    overflow-y: hidden;
+  }
 }
 
 code {
@@ -37,6 +43,11 @@ header {
 h1 {
   margin: 0;
   color: var(--mid-color)
+}
+
+h6 {
+  margin: 0;
+  font-size: .6em;
 }
 
 header > p {
@@ -114,7 +125,7 @@ textarea {
   width: 100%;
   height: 100%;
   margin: auto;
-  background-color: rgba(50, 14, 59, .9);
+  background-color: var(--darkest-alpha);
 }
 
 .modal-content {

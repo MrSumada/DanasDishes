@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 
 const Footer = ({style}) => {
@@ -6,16 +6,16 @@ const Footer = ({style}) => {
     if (style === "upload") {
         upload = true;
     }
-    const emoji = require('random-food-emoji')
+    const [Food] = useState(require('random-food-emoji'));    
 
     if (upload === true) {
         return (
-            <footer style={{backgroundColor: "var(--light-off-color)"}}>{emoji()}</footer>
+            <footer style={{backgroundColor: "var(--light-off-color)"}}>{Food} Love, Adam {Food}</footer>
         )
     }
     else {
         return (
-            <footer>{emoji()}</footer>
+            <footer><h6>{Food} Love, Adam {Food}</h6></footer>
         )
     }
     
