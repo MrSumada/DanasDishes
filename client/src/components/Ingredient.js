@@ -5,9 +5,7 @@ const Ingredient = ({ recipe, j }) => {
 
     useEffect(()=>{
         setBoxChecked(JSON.parse(localStorage.getItem(`recipe-${recipe._id}-ingredient-${j}`)))
-        }, [boxChecked])
-    
-    
+        })
     
     function handleChange(e) {
         

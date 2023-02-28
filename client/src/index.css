@@ -180,8 +180,13 @@ textarea {
   height: 40dvh;
 }
 
-.half {
-  width: 50%;
+.left {
+  width: 40%;
+  overflow: scroll;
+}
+
+.right {
+  width: 60%;
   overflow: scroll;
 }
 

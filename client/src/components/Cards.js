@@ -20,15 +20,12 @@ const Cards = ({ recipe }) => {
         if ((Tab === "Ingredients" && e.target.id === "Steps") || (Tab === "Steps" && e.target.id === "Ingredients")) {
             setTab("Two");
             localStorage.setItem(`Tab`, JSON.stringify("Two"));
-            setTimeout(window.location.reload(), 0)
         } else if (Tab === "Two" && e.target.id === "Ingredients") {
             setTab("Ingredients");
             localStorage.setItem(`Tab`, JSON.stringify("Ingredients"));
-            setTimeout(window.location.reload(), 0)
         } else if (Tab === "Two" && e.target.id === "Steps") {
             setTab("Steps");
             localStorage.setItem(`Tab`, JSON.stringify("Steps"));
-            setTimeout(window.location.reload(), 0)
         } else {
             setTab(e.target.id);
             localStorage.setItem(`Tab`, JSON.stringify(e.target.id)); 

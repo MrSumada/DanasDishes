@@ -6,11 +6,11 @@ const Step = ({ recipe, i, Tab }) => {
 
     useEffect(()=>{
             setBoxChecked(JSON.parse(localStorage.getItem(`recipe-${recipe._id}-step-${i}`)))
-        }, [boxChecked])
+        })
 
-    useEffect(()=>{
-        setBoxChecked(JSON.parse(localStorage.getItem(`recipe-${recipe._id}-step-${i}`)))
-    }, [Tab])
+    // useEffect(()=>{
+    //     setBoxChecked(JSON.parse(localStorage.getItem(`recipe-${recipe._id}-step-${i}`)))
+    // }, [Tab])
     
     
     function handleChange(e) {
