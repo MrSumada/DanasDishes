@@ -10,12 +10,12 @@ const Footer = ({style}) => {
 
     if (upload === true) {
         return (
-            <footer style={{backgroundColor: "var(--light-off-color)"}}>{Food} Love, Adam {Food}</footer>
+            <footer style={{backgroundColor: "var(--light-off-color)"}}><h6>{Food} Love, Adam</h6></footer>
         )
     }
     else {
         return (
-            <footer><h6>{Food} Love, Adam {Food}</h6></footer>
+            <footer  style={{color: "var(--light-off-color)"}}><h6>{Food} Love, Adam</h6></footer>
         )
     }
     

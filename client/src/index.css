@@ -18,8 +18,8 @@ body {
   color: var(--darkest-color);
   max-height: 100svh;
 }
-@media screen and (min-height: 750px) {
-  body{
+@media screen and (max-width: 576px) {
+  body:has(.recipe) {
     overflow-y: hidden;
   }
 }
@@ -260,6 +260,7 @@ textarea {
 footer {
   margin-bottom: 1dvh;
   font-size: 1.5em;
+  /* color: var(--light-off-color) */
 }
 
 @media screen and (max-width: 700px) {

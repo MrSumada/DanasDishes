@@ -415,16 +415,17 @@ function App() {
   
 
   return (
-        <div className='App'>
-        <Header 
-          recipes={recipes} 
-          RecipeNum={RecipeNum}  
-          setRecipeNum={setRecipeNum} 
-          Page={Page} 
-          setPage={setPage}/>
-        {Page === "Upload" ? (<Upload />) : ("")}
-        {Page === "Home" ? (<Recipe recipe={recipe}/>) : ("")}
-        {Page === "Upload" ? (<Footer style="upload"/>) : (<Footer style="default"/>)}
+        <div 
+          className={`App ${Page === "Home" ? "recipe" : ""}`}>
+          <Header 
+            recipes={recipes} 
+            RecipeNum={RecipeNum}  
+            setRecipeNum={setRecipeNum} 
+            Page={Page} 
+            setPage={setPage}/>
+          {Page === "Upload" ? (<Upload />) : ("")}
+          {Page === "Home" ? (<Recipe recipe={recipe}/>) : ("")}
+          {Page === "Upload" ? (<Footer style="upload"/>) : (<Footer style="default"/>)}
         
         </div>
   );
