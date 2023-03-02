@@ -7,7 +7,7 @@ import Images from "./Images";
 const Cards = ({ recipe, Tab, setTab }) => {
 
     useEffect(()=>{
-        setTab(JSON.parse(localStorage.getItem(`Tab`)))
+        setTab(JSON.parse(localStorage.getItem(`Tab`)) || "Ingredients")
     }, [setTab])
 
     function switchTab (e) { 
