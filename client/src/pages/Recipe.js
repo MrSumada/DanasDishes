@@ -3,12 +3,12 @@ import Cards from '../components/Cards'
 import Bio from '../components/Bio';
 
 
-const Recipe = ({ recipe }) => {
+const Recipe = ({ recipe, Tab, setTab }) => {
 
     return (
         <div>
             <Name recipe={recipe}></Name>
-            <Cards recipe={recipe}></Cards>
+            <Cards recipe={recipe} Tab={Tab} setTab={setTab}></Cards>
             <Bio></Bio>
         </div>
     )

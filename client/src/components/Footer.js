@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 
-const Footer = ({style}) => {
+const Footer = ({page}) => {
     let upload = false;
-    if (style === "upload") {
+    if (page === "upload") {
         upload = true;
     }
     const [Food] = useState(require('random-food-emoji'));    
 
     if (upload === true) {
         return (
-            <footer style={{backgroundColor: "var(--light-off-color)"}}><h6>{Food} Love, Adam</h6></footer>
+            <footer style={{backgroundColor: "var(--light-off-color)", paddingBottom: "20px"}}><h6>{Food} Love, Adam</h6></footer>
         )
     }
     else {

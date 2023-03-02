@@ -1,52 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Recipe from './pages/Recipe';
 import Upload from './pages/Upload';
-import {
-  ApolloProvider,
-  ApolloClient,
-  InMemoryCache,
-  createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context'
+// import {
+//   ApolloProvider,
+//   ApolloClient,
+//   InMemoryCache,
+//   createHttpLink,
+// } from '@apollo/client';
+// import { setContext } from '@apollo/client/link/context'
 import piePicture from "./assets/images/IMG_1341.jpg"
 
-const httpLink = createHttpLink({
-  uri: '/graphql',
-})
+// const httpLink = createHttpLink({
+//   uri: '/graphql',
+// })
 
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token')
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    }
-  }
-})
+// const authLink = setContext((_, { headers }) => {
+//   const token = localStorage.getItem('id_token')
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : '',
+//     }
+//   }
+// })
 
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-})
-
-// function App() {
-
-//   return (
-//     <div className="App">
-//       <Header></Header>
-//       <Recipe></Recipe>
-//       <Footer></Footer>
-//     </div>
-//   );
-// }
+// const client = new ApolloClient({
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// })
 
 function App() {
-
-  
 
   const recipes = [{
     _id: 0,
@@ -290,7 +277,9 @@ function App() {
     name: "Tasty's Chocolate Chip Cookies",
     difficulty: "Easy",
     time: "30 minutes",
-    background: "This is Tasty's Recipe. It's very good! <<<< >>>> https://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies",
+    background: `This is Tasty's Recipe. It's very good!
+    
+    https://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies`,
     ingredients: [
       {
         id: 0,
@@ -377,15 +366,35 @@ function App() {
         id: 0,
         picture: `https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/62298.jpg`,
         alt: `Alvin Zhou's Amazing Cookies`
+      },
+      {
+        id: 1,
+        picture: `https://assets.bonappetit.com/photos/5ca534485e96521ff23b382b/`,
+        alt: `Alvin Zhou's Amazing Cookies`
+      },
+      {
+        id: 2,
+        picture: `https://static01.nyt.com/images/2022/02/12/dining/JT-Chocolate-Chip-Cookies/JT-Chocolate-Chip-Cookies-articleLarge.jpg`,
+        alt: `Alvin Zhou's Amazing Cookies`
+      },
+      {
+        id: 3,
+        picture: `https://cookiesandcups.com/wp-content/uploads/2021/01/brownbutterchocolatechipcookies-8.jpg`,
+        alt: `Alvin Zhou's Amazing Cookies`
+      },
+      {
+        id: 4,
+        picture: `https://assets.epicurious.com/photos/56ba285dba01da483a2cd5c2/`,
+        alt: `Alvin Zhou's Amazing Cookies`
       }
     ]
   }
 ]
-
+  const [Tab, setTab ] = useState("Ingredients");
   const [Page, setPage] = useState("Home")
   const [RecipeNum, setRecipeNum] = useState(0)
 
-  let storedRecipe = localStorage.getItem(`Recipe`); 
+  let storedRecipe = localStorage.getItem(`Recipe`) || 0; 
 
   useEffect(() => {
     if (storedRecipe) {
@@ -422,15 +431,20 @@ function App() {
             RecipeNum={RecipeNum}  
             setRecipeNum={setRecipeNum} 
             Page={Page} 
-            setPage={setPage}/>
+            setPage={setPage}
+            Tab={Tab}
+            setTab={setTab}
+          />
           {Page === "Upload" ? (<Upload />) : ("")}
-          {Page === "Home" ? (<Recipe recipe={recipe}/>) : ("")}
-          {Page === "Upload" ? (<Footer style="upload"/>) : (<Footer style="default"/>)}
+          {Page === "Home" ? (<Recipe 
+            recipe={recipe}
+            Tab={Tab}
+            setTab={setTab}
+          />) : ("")}
+          {Page === "Upload" ? (<Footer page={"upload"}/>) : (<Footer page={"default"}/>)}
         
         </div>
   );
-
-
 }
 
 

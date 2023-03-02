@@ -61,12 +61,6 @@ select {
   border: solid 1px black;
 }
 
-/* option {
-  height: 100px;
-  padding: 70px;
-  border-radius: 20px;
-} */
-
 input, textarea {
   margin-left: 10px;
   margin-right: 10px;
@@ -170,7 +164,7 @@ textarea {
 }
 .story-container {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.25em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -182,13 +176,19 @@ textarea {
 
 .picture-container {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  gap: 20px;
+  /* box-shadow: 20px 0px 10px gray inset; */
 }
 
 .picture {
   border-radius: 15px;
+  /* width: 30dvh; */
   height: 40dvh;
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
 }
 
 .left {
@@ -208,7 +208,7 @@ textarea {
   align-items: center;
   gap: 3dvh;
   padding-top: 10dvh;
-  padding-bottom: 10dvh;
+  padding-bottom: 15dvh;
   background-color: var(--light-off-color);
 }
 
@@ -222,6 +222,10 @@ textarea {
 
 .ingredient-list, .image-list {
   width: 50vw;
+}
+
+.ingredient-list > div > input {
+  margin-top: 1vh;;
 }
 
 [id^=ingredient-upload] {

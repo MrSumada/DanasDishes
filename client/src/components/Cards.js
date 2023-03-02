@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Background from "./Background";
 import Ingredients from "./Ingredients";
 import Steps from "./Steps";
 import Images from "./Images";
 
-const Cards = ({ recipe }) => {
-
-    const [Tab, setTab ] = useState("Ingredients");
-    // const [storedTab, setStoredTab] = useState("Ingredients");
-    const storage = JSON.parse(localStorage.getItem(`Tab`));
+const Cards = ({ recipe, Tab, setTab }) => {
 
     useEffect(()=>{
-        if (storage) {
-            setTab(storage)
-        }
-        }, [])
+        setTab(JSON.parse(localStorage.getItem(`Tab`)))
+    }, [setTab])
 
     function switchTab (e) { 
         if ((Tab === "Ingredients" && e.target.id === "Steps") || (Tab === "Steps" && e.target.id === "Ingredients")) {

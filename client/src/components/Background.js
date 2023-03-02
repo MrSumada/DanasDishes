@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Background = ({ recipe }) => {
 
     const addAnchorTags = (inputText) => {
         let replacedText, replacePattern0, replacePattern1, replacePattern2, replacePattern3;
 
-
-        //remove < and > to disrupt malicious code
-        replacePattern0 = inputText.replace(/<|>/g, '')
+        //remove < and > to disrupt malicious code, add line breaks
+        replacePattern0 = inputText.replace(/<|>/g, '').replace(/\n/g,'<br/>')
 
         //URLs starting with http://, https://, or ftp://
         replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\\/%?=~_|!:,.;]*[-A-Z0-9+&@#\\/%=~_|])/gim;
@@ -26,7 +25,6 @@ const Background = ({ recipe }) => {
 
     return (
         <p dangerouslySetInnerHTML={{__html:  addAnchorTags(recipe.background)}}>
-           
         </p>
        
     )

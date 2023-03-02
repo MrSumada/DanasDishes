@@ -1,18 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Images = ({ recipe }) => {
-    
-    // const [boxChecked, setBoxChecked] = useState(false);
-    
-    // function handleChange(e) {
-    //     let isChecked = e.target.checked
-    //     console.log("checked")
-    //     if (e.target.checked) {
-    //         setBoxChecked(true);
-    //     } else {
-    //         setBoxChecked(false);
-    //     }
-    // }
 
     return (
         

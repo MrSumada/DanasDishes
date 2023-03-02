@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Select from 'react-select'
 
-const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
+const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, setTab }) => {
     
     const [Modal, setModal] = useState(false);
 
@@ -20,10 +20,10 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
     }
 
     const changeRecipe = (e) => {
-        console.log(e.value)
         localStorage.clear();
-        setRecipeNum(e.value)
-        setTimeout(window.location.reload(), 1)
+        setRecipeNum(e.value);
+        localStorage.setItem(`Tab`, JSON.stringify(Tab));
+        setTimeout(window.location.reload(), 0)
         
     } 
 
@@ -31,16 +31,11 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage }) => {
     for (let i = 0; i < recipes.length; i++){
         options.push({value: i, label: recipes[i].name})
     }
-    
 
     useEffect(() => {
         localStorage.setItem(`Recipe`, RecipeNum); 
         setModal(false)
     }, [RecipeNum])
-
-    // useEffect(() => {
-    //     setModal(false)
-    // }, [RecipeNum])
 
     return (
         <header>
