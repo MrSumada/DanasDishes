@@ -127,7 +127,7 @@ function App() {
     name: "Cap'n Crunch Cookies",
     difficulty: "Easy",
     time: "1 hours",
-    background: "I update this all the time!",
+    background: "I update this all the time!\n\nemail me at adampaynewebdev@gmail.com",
     ingredients: [
       {
         id: 0,
@@ -277,9 +277,7 @@ function App() {
     name: "Tasty's Chocolate Chip Cookies",
     difficulty: "Easy",
     time: "30 minutes",
-    background: `This is Tasty's Recipe. It's very good!
-    
-    https://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies`,
+    background: `This is Tasty's Recipe. It's very good!\n\nhttps://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies`,
     ingredients: [
       {
         id: 0,
