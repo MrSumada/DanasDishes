@@ -30,7 +30,6 @@ const Step = ({ recipe, i }) => {
             >
                 {recipe.steps[i].step}
             </div>
-            
         </div>
     )
 }

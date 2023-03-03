@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Select from 'react-select'
 
-const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, setTab }) => {
+const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab }) => {
     
+    // Toggle Recipe Selector Modal
     const [Modal, setModal] = useState(false);
-
     const toggleModal = () => {
         setModal(Modal => !Modal)
     }
+    // Toggle Upload Page
     const toggleUpload = () => {
         if (Page === "Home") { 
             setPage("Upload")
@@ -19,19 +20,21 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, setTab }
         }
     }
 
+    // when changing recipe delete localStorage and set recipe and tab, then reload
     const changeRecipe = (e) => {
         localStorage.clear();
         setRecipeNum(e.value);
         localStorage.setItem(`Tab`, JSON.stringify(Tab));
-        setTimeout(window.location.reload(), 0)
-        
+        setTimeout(window.location.reload(), 0);
     } 
 
+    // Array of recipe objects
     let options = [];
     for (let i = 0; i < recipes.length; i++){
         options.push({value: i, label: recipes[i].name})
     }
 
+    // set recipe and close modal when recipe selected
     useEffect(() => {
         localStorage.setItem(`Recipe`, RecipeNum); 
         setModal(false)

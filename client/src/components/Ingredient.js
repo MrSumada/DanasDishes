@@ -30,7 +30,6 @@ const Ingredient = ({ recipe, j }) => {
                 <span className="amount">{recipe.ingredients[j].quantity} </span>
                 {recipe.ingredients[j].name}
             </div>
-            <div></div>
         </div>
     )
 }

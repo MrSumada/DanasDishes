@@ -6,10 +6,12 @@ import Images from "./Images";
 
 const Cards = ({ recipe, Tab, setTab }) => {
 
+    // retain Tab from localStorage
     useEffect(()=>{
         setTab(JSON.parse(localStorage.getItem(`Tab`)) || "Ingredients")
     }, [setTab])
 
+    // Switch to either selected Tab or Two up display for Ingreidents and Steps
     function switchTab (e) { 
         if ((Tab === "Ingredients" && e.target.id === "Steps") || (Tab === "Steps" && e.target.id === "Ingredients")) {
             setTab("Two");
@@ -27,7 +29,6 @@ const Cards = ({ recipe, Tab, setTab }) => {
     };
 
     return (
-   
         <div>
             <div>
                 {/* NAV BAR for the recipe */}
@@ -38,7 +39,7 @@ const Cards = ({ recipe, Tab, setTab }) => {
                     <div className={`nav ${(Tab==="Images") ? "active" : ""}`} id="Images" onClick={switchTab}>Images</div>
                 </div>
 
-                {/* STORY for the Recipe */}
+                {/* BACKGROUND for the Recipe */}
                 <div 
                 style={{"display": `${(Tab==="Story") ? "block" : "none"}`}}
                 className="card story-container" id="card-1">
@@ -56,7 +57,7 @@ const Cards = ({ recipe, Tab, setTab }) => {
                 </div>
             </div>    
 
-            {/* Steps for the Recipe */}
+            {/* STEPS for the Recipe */}
             <div>
                 <div 
                 style={{"display": `${(Tab==="Steps") ? "block" : "none"}`}}
@@ -64,7 +65,7 @@ const Cards = ({ recipe, Tab, setTab }) => {
                     <Steps recipe={recipe} Tab={Tab}/>
                 </div>
             </div>
-            {/* Pictures for the Recipe */}
+            {/* IMAGES for the Recipe */}
             <div>
                 <div
                 style={{"display": `${(Tab==="Images") ? "flex" : "none"}`}}
@@ -88,6 +89,5 @@ const Cards = ({ recipe, Tab, setTab }) => {
         </div>
     )
 }
-    
 
 export default Cards;
