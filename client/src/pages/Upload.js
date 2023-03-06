@@ -34,11 +34,11 @@ export default function Upload() {
             <div id="upload-time">
                 <label style={{marginRight: '3vw'}}>Time: </label>
                 <label>Hours: </label>
-                <input type="number" id="hours-input"
+                <input type="number" inputMode="numeric" id="hours-input"
                 min="0"
                 max="50"/>
                 <label>Minutes: </label>
-                <input type="number" id="minutes-input" 
+                <input type="number" inputMode="numeric" id="minutes-input" 
                 min="0"
                 max="59"/>
             </div>
@@ -48,7 +48,7 @@ export default function Upload() {
             </div>
             <div>
                 <label>Number of Ingredients: </label>
-                <input type="number" id="ingredients-num" 
+                <input type="number" inputMode="numeric" id="ingredients-num" 
                     min="1"
                     max="50"
                     defaultValue={ingredientsNum} 
@@ -74,7 +74,7 @@ export default function Upload() {
             </div>
             <div>
                 <label>Number of Steps: </label>
-                <input type="number" id="ingredients-num" 
+                <input type="number" inputMode="numeric" id="ingredients-num" 
                     min="1"
                     max="50"
                     defaultValue={stepsNum} 
@@ -93,7 +93,7 @@ export default function Upload() {
             </div>
             <div>
                 <label>Number of Images: </label>
-                <input type="number" id="images-num" 
+                <input type="number" inputMode="numeric" id="images-num" 
                     min="0"
                     max="20"
                     defaultValue={imagesNum} 
