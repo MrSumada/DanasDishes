@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "gh-pages": "^4.0.0",
     "graphql": "^16.6.0",
+    "party-js": "^2.2.0",
     "random-food-emoji": "^2.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

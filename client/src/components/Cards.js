@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Background from "./Background";
 import Ingredients from "./Ingredients";
 import Steps from "./Steps";
@@ -6,12 +6,14 @@ import Images from "./Images";
 
 const Cards = ({ recipe, Tab, setTab }) => {
 
+    const [length, setLength] = useState(localStorage.getItem(`recipe-${recipe._id}-length`) || 0);
+
     // retain Tab from localStorage
     useEffect(()=>{
         setTab(JSON.parse(localStorage.getItem(`Tab`)) || "Ingredients")
     }, [setTab])
 
-    // Switch to either selected Tab or Two up display for Ingreidents and Steps
+    // Switch to either selected Tab or Two up display for Ingredients and Steps
     function switchTab (e) { 
         if ((Tab === "Ingredients" && e.target.id === "Steps") || (Tab === "Steps" && e.target.id === "Ingredients")) {
             setTab("Two");
@@ -53,7 +55,12 @@ const Cards = ({ recipe, Tab, setTab }) => {
                 <div
                 style={{"display": `${(Tab==="Ingredients") ? "block" : "none"}`}}
                 className="card ingredients-container" id="card-1">
-                    <Ingredients recipe={recipe} Tab={Tab}/>
+                    <Ingredients 
+                        recipe={recipe} 
+                        Tab={Tab} 
+                        length={length}
+                        setLength={setLength}
+                    />
                 </div>
             </div>    
 
@@ -62,7 +69,12 @@ const Cards = ({ recipe, Tab, setTab }) => {
                 <div 
                 style={{"display": `${(Tab==="Steps") ? "block" : "none"}`}}
                 className="card steps-container" id="card-1">
-                    <Steps recipe={recipe} Tab={Tab}/>
+                    <Steps 
+                        recipe={recipe} 
+                        Tab={Tab} 
+                        length={length}
+                        setLength={setLength}
+                    />
                 </div>
             </div>
             {/* IMAGES for the Recipe */}
@@ -79,10 +91,20 @@ const Cards = ({ recipe, Tab, setTab }) => {
                 style={{"display": `${(Tab==="Two") ? "flex" : "none"}`}}
                 className="card two-up-container" id="cards-2-3">
                     <div className="half left">
-                        <Ingredients recipe={recipe} Tab={Tab}/>
+                        <Ingredients 
+                            recipe={recipe} 
+                            Tab={Tab} 
+                            length={length}
+                            setLength={setLength}
+                        />
                     </div>
                     <div className="half right">
-                        <Steps recipe={recipe} Tab={Tab}/>
+                        <Steps 
+                            recipe={recipe} 
+                            Tab={Tab} 
+                            length={length}
+                            setLength={setLength}
+                        />
                     </div>
                 </div>
             </div>
