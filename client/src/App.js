@@ -1,37 +1,39 @@
 import React, { useState, useEffect } from 'react';
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Recipe from './pages/Recipe';
 import Upload from './pages/Upload';
-// import {
-//   ApolloProvider,
-//   ApolloClient,
-//   InMemoryCache,
-//   createHttpLink,
-// } from '@apollo/client';
-// import { setContext } from '@apollo/client/link/context'
+import Home from './pages/Home';
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context'
 import piePicture from "./assets/images/IMG_1341.jpg"
 
-// const httpLink = createHttpLink({
-//   uri: '/graphql',
-// })
+const httpLink = createHttpLink({
+  uri: '/graphql',
+})
 
-// const authLink = setContext((_, { headers }) => {
-//   const token = localStorage.getItem('id_token')
-//   return {
-//     headers: {
-//       ...headers,
-//       authorization: token ? `Bearer ${token}` : '',
-//     }
-//   }
-// })
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token')
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    }
+  }
+})
 
-// const client = new ApolloClient({
-//   link: authLink.concat(httpLink),
-//   cache: new InMemoryCache(),
-// })
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+})
 
 function App() {
 
@@ -402,47 +404,37 @@ function App() {
 
   let recipe = recipes[RecipeNum]
 
-  // return (
-  //   <ApolloProvider client={client}>
-  //     <Router
-  //     basename='/DanasDishes/'
-  //     >
-  //       <div className='App'>
-  //       <Header recipes={recipes} RecipeNum={RecipeNum} setRecipeNum={setRecipeNum}/>
-  //       <Routes>
-  //         <Route exact path="/upload" element={<Upload/>} />
-  //         <Route exact path="/*"  element={<Recipe recipe={recipe}/>} />
-  //       </Routes>
-  //       <Footer />
-  //       </div>
-        
-  //     </Router>
-  //   </ApolloProvider>
-  // );
-  
-
   return (
-        <div 
-          className={`App ${Page === "Home" ? "recipe" : ""}`}>
-          <Header 
-            recipes={recipes} 
-            RecipeNum={RecipeNum}  
-            setRecipeNum={setRecipeNum} 
-            Page={Page} 
-            setPage={setPage}
-            Tab={Tab}
-            setTab={setTab}
-          />
-          {Page === "Upload" ? (<Upload />) : ("")}
-          {Page === "Home" ? (<Recipe 
-            recipe={recipe}
-            Tab={Tab}
-            setTab={setTab}
-          />) : ("")}
-          {Page === "Upload" ? (<Footer page={"upload"}/>) : (<Footer page={"default"}/>)}
-        
-        </div>
+    <ApolloProvider client={client}>
+      <Router>
+      <Routes basename="/DanasDishes">
+          <Route exact path="/upload" element={<Upload />} />
+          <Route  path="/*" element={<Home />} />
+        </Routes>
+      </Router>
+    </ApolloProvider>
   );
+
+  // return (
+  //   <div className={`App ${Page === "Home" ? "recipe" : ""}`}>
+  //     <Header 
+  //       recipes={recipes} 
+  //       RecipeNum={RecipeNum}  
+  //       setRecipeNum={setRecipeNum} 
+  //       Page={Page} 
+  //       setPage={setPage}
+  //       Tab={Tab}
+  //       setTab={setTab}
+  //     />
+  //     {Page === "Upload" ? (<Upload />) : ("")}
+  //     {Page === "Home" ? (<Recipe 
+  //       recipe={recipe}
+  //       Tab={Tab}
+  //       setTab={setTab}
+  //     />) : ("")}
+  //     {Page === "Upload" ? (<Footer page={"upload"}/>) : (<Footer page={"default"}/>)}
+  //   </div>
+  // );
 }
 
 
