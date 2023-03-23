@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import party from 'party-js';
 
-const Ingredient = ({ recipe, j, length, setLength  }) => {
+const Ingredient = ({ recipe, j, length, setLength, Tab, SetTab }) => {
     const [boxChecked, setBoxChecked] = useState(false);
 
     useEffect(()=>{
         setBoxChecked(JSON.parse(localStorage.getItem(`recipe-${recipe._id}-ingredient-${j}`)))
-    }, [boxChecked, recipe, j])
+    }
+    // , [boxChecked, recipe, j, SetTab]
+    )
     
     function handleChange(e) {
         
