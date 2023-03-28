@@ -35,6 +35,7 @@ const Home = () => {
       {Page === "Upload" ? (<Upload />) : ("")}
       {Page === "Home" ? (<Recipe 
         recipe={recipe}
+        RecipeNum={RecipeNum}
         Tab={Tab}
         setTab={setTab}
       />) : ("")}

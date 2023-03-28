@@ -4,14 +4,20 @@ import Ingredients from "./Ingredients";
 import Steps from "./Steps";
 import Images from "./Images";
 
-const Cards = ({ recipe, Tab, setTab }) => {
+const Cards = ({ recipe, RecipeNum, Tab, setTab }) => {
 
-    const [length, setLength] = useState(localStorage.getItem(`recipe-${recipe._id}-length`) || 0);
+    const [length, setLength] = useState(JSON.parse(localStorage.getItem(`recipe-${parseInt(RecipeNum)}-length`)));
 
     // retain Tab from localStorage
     useEffect(()=>{
         setTab(JSON.parse(localStorage.getItem(`Tab`)) || "Ingredients")
     }, [setTab])
+
+    // retain Length from localStorage
+    useEffect(()=>{
+        setLength(JSON.parse(localStorage.getItem(`recipe-${parseInt(RecipeNum)}-length`)) || 0)
+    }, [length])
+ 
 
     // Switch to either selected Tab or Two up display for Ingredients and Steps
     function switchTab (e) { 
