@@ -351,6 +351,62 @@ const recipes = [{
         alt: `Alvin Zhou's Amazing Cookies`
       }
     ]
+  },
+  {
+
+    _id: 4,
+    name: "Cocoa Krispies Treats",
+    difficulty: "Easy",
+    time: "20 minutes",
+    background: `We love cereal here. 
+    
+    Feel free to mix with Cocoa Pebbles!`,
+    ingredients: [
+      {
+        id: 0,
+        quantity: `1 lb.`,
+        name:`Marshmellows`
+      },
+      {
+        id: 1,
+        quantity: `4 T.`,
+        name:`Butter`
+      },
+      {
+        id: 2,
+        quantity: `1 box (17.5 oz.)`,
+        name:`Cocoa Krispies Cereal`
+      }
+    ],
+    steps: [
+      {
+        id: 0,
+        step: `Line a 9 x 13 pan with buttered parchment paper.`
+      },
+      {
+        id: 1,
+        step: `In a large non-stick pot, melt butter and marshmallows over medium heat, stirring frequently.`
+      },
+      {
+        id: 2,
+        step: `Turn heat to lowest setting, and add entire box of cereal. Stir gently until evenly coated.`
+      },
+      {
+        id: 3,
+        step: `Turn into pan. Butter hands and press down evenly. Let cool.`
+      },
+      {
+        id: 4,
+        step: `Pull out of pan with parchment, and cut into squares.`
+      }
+    ],
+    images: [
+      {
+        id: 0,
+        picture: `https://i3.wp.com/www.foodlovinfamily.com/wp-content/uploads/2022/10/chocolate-rice-krispie-treats.jpg`,
+        alt: `Yummy Cocoa Krispies treats!`
+      }
+    ]
   }
 ]
 
