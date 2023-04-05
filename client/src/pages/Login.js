@@ -7,7 +7,7 @@ const Login = ({ recipe, RecipeNum }) => {
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
-        navigate("/");
+        navigate("/DanasDishes/");
     }
 
     return (

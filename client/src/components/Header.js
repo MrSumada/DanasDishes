@@ -17,12 +17,12 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab }) => {
         if (Page === "Home") { 
             setPage("Upload")
             setModal(false)
-            navigate("/upload");
+            navigate("/DanasDishes/upload/");
         }
         if (Page === "Upload") { 
             setPage("Home") 
             setModal(false)
-            navigate("/");
+            navigate("/DanasDishes/");
         }
     }
 

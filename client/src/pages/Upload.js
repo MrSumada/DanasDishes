@@ -10,7 +10,7 @@ export default function Upload() {
 
     let navigate = useNavigate(); 
     const routeHome = () =>{ 
-        navigate("/");
+        navigate("/DanasDishes/");
     }
 
     const ingredientsChange = (e) => {
