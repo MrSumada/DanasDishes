@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Select from 'react-select'
 
-const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab }) => {
+const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn, setLoggedIn }) => {
     
     // Toggle Recipe Selector Modal
     const [Modal, setModal] = useState(false);
@@ -10,19 +9,19 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab }) => {
         setModal(Modal => !Modal)
     }
 
-    let navigate = useNavigate(); 
+    const routeLogin = () => {
+        setPage("Login")
+    }
 
     // Toggle Upload Page
     const toggleUpload = () => {
         if (Page === "Home") { 
             setPage("Upload")
             setModal(false)
-            navigate("/DanasDishes/upload/");
         }
         if (Page === "Upload") { 
             setPage("Home") 
             setModal(false)
-            navigate("/DanasDishes/");
         }
     }
 
@@ -51,8 +50,9 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab }) => {
             <div id="page-header">
                 <h1>Dana's <span>Dishes</span></h1>
                 {Page === "Home" ? <div id="selector" onClick={toggleModal}>{Modal ? "X" : "Recipes"}</div> : ("")}
-                {Page === "Home" ? <div id="upload-toggle" onClick={toggleUpload}>Upload</div>
-                : <div id="upload-toggle" onClick={toggleUpload}>Home</div> }
+                {Page === "Home" && LoggedIn === true ? <div id="upload-toggle" onClick={toggleUpload}>Upload</div> : ("")}
+                {Page === "Home" && LoggedIn === false ? <div id="upload-toggle" onClick={routeLogin}>Log in</div> : ("")}
+                {Page === "Upload" ? <div id="upload-toggle" onClick={toggleUpload}>Home</div> : ("")}
             </div>
             {Modal ?( 
                 <div className="selector-modal">
