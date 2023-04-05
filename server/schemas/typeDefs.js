@@ -14,7 +14,6 @@ const typeDefs = gql`
     username: String
     steps: [Step]
     images: [Image]
-    favoriteCount: Int
   }
   type User {
     _id: ID
@@ -54,12 +53,12 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addRecipe(name: String!): Goal
-    addStep(goalId: ID!, stepBody: String!): Goal
-    completeIngredient(ingredientId: ID!): Goal
-    completeStep(goalId: ID!, stepId: ID!): Goal
-    deleteRecipe(goalId: ID!): Goal
-    deleteStep(goalId: ID!, stepId: ID!): Goal
+    addRecipe(name: String!): Recipe
+    addStep(recipeId: ID!, stepBody: String!): Recipe
+    completeIngredient(ingredientId: ID!): Recipe
+    completeStep(recipeId: ID!, stepId: ID!): Recipe
+    deleteRecipe(recipeId: ID!): Recipe
+    deleteStep(recipeId: ID!, stepId: ID!): Recipe
   }
 `;
 

@@ -87,21 +87,34 @@ textarea {
   height: 20vh;
 }
 
+#logo {
+  width: 50vw;
+  margin: 0 auto;
+}
+
 #page-header {
   display: flex;
   justify-content: center;
 }
 
-#selector, #upload-toggle {
+#selector, #upload-toggle, #login {
   color: var(--darkest-color);
-  position: absolute;
-  top: 30px;
   background-color: var(--mid-color);
   border-radius: 5px;
   border: solid 5px var(--mid-color);
-  width: 60px;
   max-height: 50px;
   cursor: pointer;
+}
+
+#selector, #upload-toggle {
+  width: 60px;
+  position: absolute;
+  top: 30px;
+}
+
+#login {
+  margin: 0 auto;
+  width: 120px;
 }
 
 #selector {

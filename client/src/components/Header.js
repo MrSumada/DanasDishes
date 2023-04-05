@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from 'react-select'
 
 const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab }) => {
@@ -8,15 +9,20 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab }) => {
     const toggleModal = () => {
         setModal(Modal => !Modal)
     }
+
+    let navigate = useNavigate(); 
+
     // Toggle Upload Page
     const toggleUpload = () => {
         if (Page === "Home") { 
             setPage("Upload")
             setModal(false)
+            navigate("/upload");
         }
         if (Page === "Upload") { 
             setPage("Home") 
             setModal(false)
+            navigate("/");
         }
     }
 

@@ -1,11 +1,17 @@
 import React, { useState } from "react";
-
+import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
 
 export default function Upload() {
 
     const [ingredientsNum, setIngredientsNum] = useState(1);
     const [stepsNum, setStepsNum] = useState(1);
     const [imagesNum, setImagesNum] = useState(1);
+
+    let navigate = useNavigate(); 
+    const routeHome = () =>{ 
+        navigate("/");
+    }
 
     const ingredientsChange = (e) => {
         setIngredientsNum(parseInt(e.target.value) || 1);
@@ -18,6 +24,16 @@ export default function Upload() {
     } 
 
     return (
+        <div className="App">
+            <header>
+                <div id="page-header">
+                    <h1>Dana's <span>Dishes</span></h1>
+                    <div id="upload-toggle" onClick={routeHome}>Home</div>
+                </div>
+                <p>The Best Space for My Mom's Recipes</p>
+            </header>
+            
+
         <div className="upload">
             <div id="upload-title">
                 <label htmlFor="title"> Recipe Name: </label>
@@ -115,5 +131,7 @@ export default function Upload() {
             
             <input type="submit" value="Submit"></input>
         </div>
+        </div>
+        
     )
 }

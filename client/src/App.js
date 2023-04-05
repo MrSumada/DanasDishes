@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Recipe from './pages/Recipe';
+import Login from './pages/Login';
 import Upload from './pages/Upload';
 import Home from './pages/Home';
 import recipes from './recipes';
@@ -57,6 +58,7 @@ function App() {
       <Router>
       <Routes basename="/DanasDishes">
           <Route exact path="/upload" element={<Upload />} />
+          <Route exact path="/login" element={<Login />} />
           <Route  path="/*" element={<Home />} />
         </Routes>
       </Router>

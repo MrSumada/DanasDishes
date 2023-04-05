@@ -1,9 +1,10 @@
 const { Schema, model } = require('mongoose');
 const stepSchema = require('./Step');
-const encouragementSchema = require('./Encouragement')
-const dateFormat = require('../utils/dateFormat');
+const ingredientSchema = require('./Ingredient')
+const imageSchema = require('./Image');
+// const dateFormat = require('../utils/dateFormat');
 
-const goalSchema = new Schema(
+const recipeSchema = new Schema(
   {
     name: {
       type: String,
@@ -21,20 +22,16 @@ const goalSchema = new Schema(
         type: String
     },
     ingredients: [ingredientSchema],
+    steps: [stepSchema],
+    images: [imageSchema],
     createdAt: {
       type: Date,
       default: Date.now,
-      get: timestamp => dateFormat(timestamp)
+      // get: timestamp => dateFormat(timestamp)
     },
     username: {
       type: String,
       required: true
-    },
-    steps: [stepSchema],
-    images: [imageSchema],
-    favoriteCount: {
-        type: Int32Array,
-        required: false 
     }
   },
   {
@@ -44,14 +41,11 @@ const goalSchema = new Schema(
   }
 );
 
-goalSchema.virtual('stepCount').get(function() {
-  return this.steps.length;
+ingredientSchema.virtual('ingredientCount').get(function() {
+  return this.ingredients.length;
 });
 
-goalSchema.virtual('encouragementCount').get(function () {
-  return this.encouragements.length;
-});
 
-const Goal = model('Goal', goalSchema);
+const Recipe = model('Recipe', recipeSchema);
 
-module.exports = Goal;
+module.exports = Recipe;

@@ -1,12 +1,13 @@
 const { Schema } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const imageSchema = require('./Image');
+// const dateFormat = require('../utils/dateFormat');
 
 const stepSchema = new Schema(
   {
     step: {
       type: String,
       required: [true, 'This step needs to have text'],
-      maxlength: 1024
+      maxLength: 1024
     },
     completed: {
       type: Boolean,

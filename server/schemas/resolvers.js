@@ -1,11 +1,8 @@
 const { AuthenticationError } = require('apollo-server-express')
-const { User, Recipe } = require('../models')
+const { User } = require('../models/User')
+const { Recipe } = require('../models/Recipe')
 const { signToken } = require('../utils/auth')
 
-
-const { AuthenticationError } = require('apollo-server-express')
-const { User, Recipe } = require('../models')
-const { signToken } = require('../utils/auth')
 
 const resolvers = {
     Query: {
@@ -89,33 +86,33 @@ const resolvers = {
 
         throw new AuthenticationError('You need to be logged in!')
         },
-        completeStep: async (parent, { recipeId, ingredientId }, context) => {
-            if (context.user) {
-                const updatedRecipe = await Recipe.findOneAndUpdate(
-                { _id: recipeId, 'steps._id': stepId },
-                { 'steps.$.completed': true },
-                { new: true, runValidators: true },
-                )
-                .populate('steps')
+        // completeStep: async (parent, { recipeId, ingredientId }, context) => {
+        //     if (context.user) {
+        //         const updatedRecipe = await Recipe.findOneAndUpdate(
+        //         { _id: recipeId, 'steps._id': stepId },
+        //         { 'steps.$.completed': true },
+        //         { new: true, runValidators: true },
+        //         )
+        //         .populate('steps')
     
-                return updatedRecipe
-            }
-            throw new AuthenticationError('You need to be logged in!')
-            },
+        //         return updatedRecipe
+        //     }
+        //     throw new AuthenticationError('You need to be logged in!')
+        //     },
         
-        completeStep: async (parent, { recipeId, stepId }, context) => {
-        if (context.user) {
-            const updatedRecipe = await Recipe.findOneAndUpdate(
-            { _id: recipeId, 'steps._id': stepId },
-            { 'steps.$.completed': true },
-            { new: true, runValidators: true },
-            )
-            .populate('steps')
+        // completeStep: async (parent, { recipeId, stepId }, context) => {
+        // if (context.user) {
+        //     const updatedRecipe = await Recipe.findOneAndUpdate(
+        //     { _id: recipeId, 'steps._id': stepId },
+        //     { 'steps.$.completed': true },
+        //     { new: true, runValidators: true },
+        //     )
+        //     .populate('steps')
 
-            return updatedRecipe
-        }
-        throw new AuthenticationError('You need to be logged in!')
-        },
+        //     return updatedRecipe
+        // }
+        // throw new AuthenticationError('You need to be logged in!')
+        // },
         deleteRecipe: async (parent, { recipeId }, context) => {
         if (context.user) {
             const deletedRecipe = await Recipe.findOneAndDelete({ _id: recipeId })
