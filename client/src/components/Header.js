@@ -5,12 +5,19 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
     
     // Toggle Recipe Selector Modal
     const [Modal, setModal] = useState(false);
-    const toggleModal = () => {
-        setModal(Modal => !Modal)
-    }
+    const [Menu, setMenu] = useState(false)
 
-    const routeLogin = () => {
-        setPage("Login")
+    const toggleModal = () => { setModal(Modal => !Modal) }
+    const toggleMenu = () => { setMenu(Menu => !Menu) }
+    const routeLogin = () => { setPage("Login") }
+    const handleMenuView = () => {
+        setMenu(false)
+        setModal(true)
+        setLoggedIn(true)
+    }
+    const logout = () => { 
+        setLoggedIn(false) 
+        setMenu(false)
     }
 
     // Toggle Upload Page
@@ -18,10 +25,12 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
         if (Page === "Home") { 
             setPage("Upload")
             setModal(false)
+            setMenu(false)
         }
         if (Page === "Upload") { 
             setPage("Home") 
             setModal(false)
+            setMenu(false)
         }
     }
 
@@ -30,7 +39,7 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
         localStorage.clear();
         setRecipeNum(e.value);
         localStorage.setItem(`Tab`, JSON.stringify(Tab));
-        setTimeout(window.location.reload(), 0);
+        // setTimeout(window.location.reload(), 0);
     } 
 
     // Array of recipe objects
@@ -49,29 +58,34 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
         <header>
             <div id="page-header">
                 <h1>Dana's <span>Dishes</span></h1>
-                {Page === "Home" ? <div id="selector" onClick={toggleModal}>{Modal ? "X" : "Recipes"}</div> : ("")}
-                {Page === "Home" && LoggedIn === true ? <div id="upload-toggle" onClick={toggleUpload}>Upload</div> : ("")}
-                {Page === "Home" && LoggedIn === false ? <div id="upload-toggle" onClick={routeLogin}>Log in</div> : ("")}
+                {Page === "Home" && !Menu ? <div id="selector" onClick={toggleModal}>{Modal ? "X" : "Recipes"}</div> : ("")}
+                {Page === "Home" && LoggedIn === true && !Modal ? <div id="upload-toggle" onClick={toggleMenu}>{Menu ? "X" : "Menu"}</div> : ("")}
+                {Page === "Home" && LoggedIn === false && !Modal? <div id="upload-toggle" onClick={routeLogin}>Log in</div> : ("")}
                 {Page === "Upload" ? <div id="upload-toggle" onClick={toggleUpload}>Home</div> : ("")}
             </div>
             {Modal ?( 
                 <div className="selector-modal">
                     <div className="modal-content">
-                        {/* <select id="recipe-selector" onChange={changeRecipe} value={RecipeNum} defaultValue={RecipeNum}>
-                            {recipes.map((_, i) => (
-                                <option key={i} value={i}>{recipes[i].name}</option>
-                            ))}
-                        </select> */}
                         <Select 
                             options={options} 
                             onChange={changeRecipe} 
+                            onMenuClose={toggleModal}
                             value={RecipeNum} 
                             defaultValue={RecipeNum}
                             styles={{
-                                control: (styles, state) => ({...styles, backgroundColor: 'var(--light-color)', borderColor: state.isFocused ? 'var(--mid-color)' : 'var(--darkest-color)'}),
+                                control: (styles, state) => ({...styles, width: "40vw", backgroundColor: 'var(--light-color)', borderColor: state.isFocused ? 'var(--mid-color)' : 'var(--darkest-color)'}),
                                 option: (styles) => ({...styles, color: 'var(--darkest-color)', backgroundColor: 'var(--light-color)'}),
                                 }}
                         />
+                    </div>
+                </div>
+                ) : ("")}
+                {Menu ?( 
+                <div className="selector-modal">
+                    <div className="modal-content">
+                        <div className="menu-item" onClick={toggleUpload}>Upload New Recipe</div>
+                        <div className="menu-item" onClick={handleMenuView}>View Your Recipes</div>
+                        <div className="menu-item" onClick={logout}>Logout</div>
                     </div>
                 </div>
                 ) : ("")}
