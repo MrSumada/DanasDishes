@@ -103,7 +103,7 @@ textarea {
   width: 50vw;
 }
 
-#selector, #upload-toggle, #login, #signup {
+#selector, #upload-toggle, #login, #signup, #back-button {
   color: var(--darkest-color);
   background-color: var(--mid-color);
   border-radius: 5px;
@@ -112,7 +112,7 @@ textarea {
   cursor: pointer;
 }
 
-#selector, #upload-toggle {
+#selector, #upload-toggle, #back-button {
   width: 60px;
   position: absolute;
   top: 30px;
@@ -130,6 +130,11 @@ textarea {
 
 #upload-toggle {
   left: max(5vw, 30px);
+}
+
+#back-button {
+  left: max(5vw, 30px);
+  top: 80px;
 }
 
 .selector-modal, .login-modal, .signup-modal {
@@ -248,12 +253,10 @@ textarea {
   justify-content: space-around;
   align-items: center;
   gap: 20px;
-  /* box-shadow: 20px 0px 10px gray inset; */
 }
 
 .picture {
   border-radius: 15px;
-  /* width: 30dvh; */
   height: 40dvh;
   box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
 }
@@ -328,10 +331,32 @@ textarea {
   background-color: var(--mid-color);
 }
 
+.clickable {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#recipe-list {
+  height: 100vh;
+  padding: 5vh 0;
+  background-color: var(--light-off-color);
+  color: var(--darkest-color);
+}
+
+.recipe-list-item {
+  background-color: var(--light-color);
+  
+  width: 70vw;
+  padding: 2dvh 2vw;
+  border-radius: 15px;
+  margin: 2dvh auto;
+  cursor: pointer;
+}
+
+
 footer {
-  margin-bottom: 1dvh;
+  padding-bottom: 1dvh;
   font-size: 2em;
-  /* color: var(--light-off-color) */
 }
 
 @media screen and (max-width: 700px) {

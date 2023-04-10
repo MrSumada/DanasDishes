@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const Footer = ({page}) => {
     let upload = false;
-    if (page === "upload") {
+    if (page === "blue") {
         upload = true;
     }
     const [Food] = useState(require('random-food-emoji'));    

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Select from 'react-select'
 
-const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn, setLoggedIn }) => {
+const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn, setLoggedIn, setCurrentAuthorId }) => {
     
     // Toggle Recipe Selector Modal
     const [Modal, setModal] = useState(false);
@@ -10,10 +10,16 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
     const toggleModal = () => { setModal(Modal => !Modal) }
     const toggleMenu = () => { setMenu(Menu => !Menu) }
     const routeLogin = () => { setPage("Login") }
-    const handleMenuView = () => {
+    const routeBack = () => { setPage("Home") }
+    const handleRecipeView = () => {
+        let authorId = 1
+        setMenu(false)
+        setPage("RecipeList")
+        setCurrentAuthorId(authorId)
+    }
+    const handleRecipeSearch = () => {
         setMenu(false)
         setModal(true)
-        setLoggedIn(true)
     }
     const logout = () => { 
         setLoggedIn(false) 
@@ -38,6 +44,7 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
     const changeRecipe = (e) => {
         localStorage.clear();
         setRecipeNum(e.value);
+        setPage("Home");
         localStorage.setItem(`Tab`, JSON.stringify(Tab));
         // setTimeout(window.location.reload(), 0);
     } 
@@ -58,10 +65,11 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
         <header>
             <div id="page-header">
                 <h1>Dana's <span>Dishes</span></h1>
-                {Page === "Home" && !Menu ? <div id="selector" onClick={toggleModal}>{Modal ? "X" : "Recipes"}</div> : ("")}
-                {Page === "Home" && LoggedIn === true && !Modal ? <div id="upload-toggle" onClick={toggleMenu}>{Menu ? "X" : "Menu"}</div> : ("")}
-                {Page === "Home" && LoggedIn === false && !Modal? <div id="upload-toggle" onClick={routeLogin}>Log in</div> : ("")}
+                {Page === "Home" && !Menu || "RecipeList" && !Menu ? <div id="selector" onClick={toggleModal}>{Modal ? "X" : "Recipes"}</div> : ("")}
+                {Page === "Home" && !LoggedIn && !Modal || "RecipeList" && LoggedIn && !Modal ? <div id="upload-toggle" onClick={toggleMenu}>{Menu ? "X" : "Menu"}</div> : ("")}
+                {Page === "Home" && !LoggedIn && !Modal || "RecipeList" && !LoggedIn && !Modal ? <div id="upload-toggle" onClick={routeLogin}>Log in</div> : ("")}
                 {Page === "Upload" ? <div id="upload-toggle" onClick={toggleUpload}>Home</div> : ("")}
+                {Page === "RecipeList" ? <div id="back-button" onClick={routeBack}>Back</div> : ("")}
             </div>
             {Modal ?( 
                 <div className="selector-modal">
@@ -84,7 +92,8 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
                 <div className="selector-modal">
                     <div className="modal-content">
                         <div className="menu-item" onClick={toggleUpload}>Upload New Recipe</div>
-                        <div className="menu-item" onClick={handleMenuView}>View Your Recipes</div>
+                        <div className="menu-item" onClick={handleRecipeSearch}>Search All Recipes</div>
+                        <div className="menu-item" onClick={handleRecipeView}>View Your Recipes</div>
                         <div className="menu-item" onClick={logout}>Logout</div>
                     </div>
                 </div>

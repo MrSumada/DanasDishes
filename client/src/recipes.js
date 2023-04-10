@@ -1,8 +1,14 @@
 import piePicture from "./assets/images/IMG_1341.jpg"
 
-const recipes = [{
+const data = 
+{
+  recipes: [{
     _id: 0,
     name: "Deep-Dish Apple Pie",
+    author: {
+      id: 0,
+      name: "Dana Riley"
+    },
     difficulty: "Medium",
     time: "2 hours",
     background: "Merry Christmas, Dana!  🎄",
@@ -90,6 +96,10 @@ const recipes = [{
   {
     _id: 1,
     name: "Cap'n Crunch Cookies",
+    author: {
+      id: 1,
+      name: "Adam Payne"
+    },
     difficulty: "Easy",
     time: "1 hours",
     background: "I update this all the time!\n\nemail me at adampaynewebdev@gmail.com",
@@ -177,6 +187,11 @@ const recipes = [{
   {
     _id: 2,
     name: "Cottage Cheese Pancakes",
+    author: {
+      id: 0,
+      name: "Dana Riley"
+    },
+    authorId: 0,
     difficulty: "Easy",
     time: "20 minutes",
     background: "They're good for you too!",
@@ -240,6 +255,9 @@ const recipes = [{
   {
     _id: 3,
     name: "Tasty's Chocolate Chip Cookies",
+    author: {
+      name: "Alvin Zhou"
+    },
     difficulty: "Easy",
     time: "30 minutes",
     background: `This is Tasty's Recipe. It's very good!\n\nhttps://tasty.co/recipe/the-best-chewy-chocolate-chip-cookies`,
@@ -353,9 +371,12 @@ const recipes = [{
     ]
   },
   {
-
     _id: 4,
     name: "Cocoa Krispies Treats",
+    author: {
+      id: 0,
+      name: "Dana Riley"
+    },
     difficulty: "Easy",
     time: "20 minutes",
     background: `We love cereal here. 
@@ -407,7 +428,23 @@ const recipes = [{
         alt: `Yummy Cocoa Krispies treats!`
       }
     ]
-  }
-]
+  }],
+  users: [
+    {
+      id: 0,
+      name: "Dana Riley",
+      recipeIds: [0, 2, 4],
+      username: "Danariley",
+      favoriteRecipeIds: [1, 3]
+    },
+    {
+      id: 1,
+      name: "Adam Payne",
+      recipeIds: [1],
+      username: "MrSumada",
+      favoriteRecipeIds: [0, 3]
+    }
+  ]
+}
 
-export default recipes;
+export default data;

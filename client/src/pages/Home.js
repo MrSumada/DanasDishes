@@ -4,7 +4,9 @@ import Upload from "./Upload";
 import Login from "./Login";
 import Footer from "../components/Footer";
 import React, { useState, useEffect } from "react";
-import recipes from "../recipes";
+import data from "../recipes";
+import RecipeList from "./RecipeList";
+import { set } from "mongoose";
 
 const Home = () => {
 
@@ -12,6 +14,7 @@ const Home = () => {
   const [LoggedIn, setLoggedIn] = useState(false);
   const [Page, setPage] = useState("Home");
   const [RecipeNum, setRecipeNum] = useState(0);
+  const [currentAuthorId, setCurrentAuthorId] = useState(0);
 
   let storedRecipe = localStorage.getItem(`Recipe`) || 0; 
 
@@ -21,12 +24,12 @@ const Home = () => {
     }
   }, [])
     
-  let recipe = recipes[RecipeNum]
+  let recipe = data.recipes[RecipeNum]
 
   return (
     <div className={`App ${Page === "Home" ? "recipe" : ""}`}>
       <Header 
-        recipes={recipes} 
+        recipes={data.recipes} 
         RecipeNum={RecipeNum}  
         setRecipeNum={setRecipeNum} 
         Page={Page} 
@@ -35,6 +38,7 @@ const Home = () => {
         setTab={setTab}
         LoggedIn={LoggedIn}
         setLoggedIn={setLoggedIn}
+        setCurrentAuthorId={setCurrentAuthorId}
       />
       {Page === "Upload" ? (<Upload />) : ("")}
       {Page === "Home" ? (<Recipe 
@@ -42,6 +46,8 @@ const Home = () => {
         RecipeNum={RecipeNum}
         Tab={Tab}
         setTab={setTab}
+        setPage={setPage}
+        setCurrentAuthorId={setCurrentAuthorId}
       />) : ("")}
       {Page === "Login" ? (<Login 
         Page={Page}
@@ -49,7 +55,17 @@ const Home = () => {
         LoggedIn={LoggedIn}
         setLoggedIn={setLoggedIn}
       />) : ("")}
-      {Page === "Upload" ? (<Footer page={"upload"}/>) : (<Footer page={"default"}/>)}
+      {Page === "RecipeList" ? (<RecipeList 
+        recipes={data.recipes} 
+        Page={Page}
+        setPage={setPage}
+        LoggedIn={LoggedIn}
+        setLoggedIn={setLoggedIn}
+        author={currentAuthorId}
+        setCurrentAuthorId={setCurrentAuthorId}
+        setRecipeNum={setRecipeNum}
+      />) : ("")}
+      {Page === "Upload" || Page === "RecipeList" ? (<Footer page={"blue"}/>) : (<Footer page={"default"}/>)}
     </div>
   )
 }

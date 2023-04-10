@@ -7,7 +7,7 @@ const Login = ({ Page, setPage, LoggedIn, setLoggedIn }) => {
     const [LoginModal, setLoginModal] = useState(false)
     const [SignUpModal, setSignUpModal] = useState(false)
 
-    const loginUser = () =>{ setLoginModal(true) }
+    const loginUser = () => { setLoginModal(true) }
     const signUpUser = () => { setSignUpModal(true) }
 
     const loginToHome = () => {
