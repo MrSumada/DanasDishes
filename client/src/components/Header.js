@@ -6,7 +6,6 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
     // Toggle Recipe Selector Modal
     const [Modal, setModal] = useState(false);
     const [Menu, setMenu] = useState(false)
-
     const toggleModal = () => { setModal(Modal => !Modal) }
     const toggleMenu = () => { setMenu(Menu => !Menu) }
     const routeLogin = () => { setPage("Login") }
@@ -46,13 +45,28 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
         setRecipeNum(e.value);
         setPage("Home");
         localStorage.setItem(`Tab`, JSON.stringify(Tab));
-        // setTimeout(window.location.reload(), 0);
     } 
 
     // Array of recipe objects
     let options = [];
+    const sortRecipes = recipes.sort((a, b) => {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+    });
     for (let i = 0; i < recipes.length; i++){
-        options.push({value: i, label: recipes[i].name})
+        if (sortRecipes[i].name === recipes[RecipeNum].name) {
+            options.push({value: i, label: `✓ ${sortRecipes[i].name}`})
+        } else {
+            options.push({value: i, label: sortRecipes[i].name})
+        }
+        
     }
 
     // set recipe and close modal when recipe selected
@@ -65,9 +79,9 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
         <header>
             <div id="page-header">
                 <h1>Dana's <span>Dishes</span></h1>
-                {Page === "Home" && !Menu || "RecipeList" && !Menu ? <div id="selector" onClick={toggleModal}>{Modal ? "X" : "Recipes"}</div> : ("")}
-                {Page === "Home" && !LoggedIn && !Modal || "RecipeList" && LoggedIn && !Modal ? <div id="upload-toggle" onClick={toggleMenu}>{Menu ? "X" : "Menu"}</div> : ("")}
-                {Page === "Home" && !LoggedIn && !Modal || "RecipeList" && !LoggedIn && !Modal ? <div id="upload-toggle" onClick={routeLogin}>Log in</div> : ("")}
+                {(Page === "Home" && !Menu) || ("RecipeList" && !Menu) ? <div id="selector" onClick={toggleModal}>{Modal ? "X" : "Recipes"}</div> : ("")}
+                {(Page === "Home" && !LoggedIn && !Modal) || ("RecipeList" && LoggedIn && !Modal) ? <div id="upload-toggle" onClick={toggleMenu}>{Menu ? "X" : "Menu"}</div> : ("")}
+                {(Page === "Home" && !LoggedIn && !Modal) || ("RecipeList" && !LoggedIn && !Modal) ? <div id="upload-toggle" onClick={routeLogin}>Log in</div> : ("")}
                 {Page === "Upload" ? <div id="upload-toggle" onClick={toggleUpload}>Home</div> : ("")}
                 {Page === "RecipeList" ? <div id="back-button" onClick={routeBack}>Back</div> : ("")}
             </div>
@@ -81,8 +95,8 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
                             value={RecipeNum} 
                             defaultValue={RecipeNum}
                             styles={{
-                                control: (styles, state) => ({...styles, width: "40vw", backgroundColor: 'var(--light-color)', borderColor: state.isFocused ? 'var(--mid-color)' : 'var(--darkest-color)'}),
-                                option: (styles) => ({...styles, color: 'var(--darkest-color)', backgroundColor: 'var(--light-color)'}),
+                                control: (styles) => ({...styles, width: "55vw", backgroundColor: 'var(--light-color)'}),
+                                option: (styles, state) => ({...styles, color: 'var(--darkest-color)', backgroundColor: state.isFocused ? 'var(--mid-color)' : 'var(--light-color)'}),
                                 }}
                         />
                     </div>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Footer from "../components/Footer";
 import logo from "../assets/images/DD-logo.png";
 
 const Login = ({ Page, setPage, LoggedIn, setLoggedIn }) => {
@@ -27,7 +26,7 @@ const Login = ({ Page, setPage, LoggedIn, setLoggedIn }) => {
 
     return (
         <div className="App login">
-            <img id="logo" src={logo}></img>
+            <img id="logo" src={logo} alt="Dana's Dishes Logo"></img>
             <div id="login-container">
                 <div id="login" onClick={loginUser}>Login Here</div>
                 <div id="signup" onClick={signUpUser}>Sign Up Here</div>
@@ -68,7 +67,7 @@ const Login = ({ Page, setPage, LoggedIn, setLoggedIn }) => {
                         <label htmlFor="signup-password-confirm">Confirm Password:</label>
                         <input id="signup-password-confirm" name="signup-password-confirm" type="password"></input>
                     </div>
-                    <input type="submit" value="Submit" onClick={loginToHome}></input>
+                    <input type="submit" value="Submit" onClick={signInToHome}></input>
                 </div>
             </div>
             ) : ("")}

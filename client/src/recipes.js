@@ -428,7 +428,108 @@ const data =
         alt: `Yummy Cocoa Krispies treats!`
       }
     ]
-  }],
+  },
+  {
+    _id: 5,
+    name: "Buttermilk Devil's Food Cake",
+    author: {
+      id: 0,
+      name: "Dana Riley"
+    },
+    authorId: 0,
+    difficulty: "Medium",
+    time: "2 hours",
+    background: "Classic!",
+    ingredients: [
+      {
+        id: 0,
+        quantity: `2 1/4 c (8 3/4 oz)`,
+        name:`Cake Flour (or 2c. A.P. Flour)`
+      },
+      {
+        id: 1,
+        quantity: `3/3 c. (2 1/4 oz)`,
+        name:`Natural Coca Powder (or Dutch — recommend Valrhona)`
+      },
+      {
+        id: 2,
+        quantity: `1 1/2 sticks (6 oz)`,
+        name:`Butter, Room temperature`
+      },
+      {
+        id: 3,
+        quantity: `1 3/4 c. (12 1/2 oz)`,
+        name:`Sugar`
+      },
+      {
+        id: 4,
+        quantity: `1/2 t.`,
+        name:`Salt`
+      },
+      {
+        id: 5,
+        quantity: `2 t.`,
+        name:`Vanilla (recommended: Nielsen Massey Mexican)`
+      },
+      {
+        id: 6,
+        quantity: `4`,
+        name:`Eggs, Room temperature`
+      },
+      {
+        id: 7,
+        quantity: `2 1/2 t.`,
+        name:`Baking Soda (For Dutch Cocoa, reduce soda to 1 t. and add1 1/2 t. baking powder)`
+      },
+      {
+        id: 8,
+        quantity: `1 3/4 c.`,
+        name:`Buttermilk, Room temperature`
+      }
+    ],
+    steps: [
+      {
+        id: 0,
+        step: `Preheat oven to 350.`
+      },
+      {
+        id: 1,
+        step: `Grease and flour two 9” pans, three 8” pans, or a 9 x 13 cake pan. Or, line 24 muffin tins with cupcake liners.`
+      },
+      {
+        id: 2,
+        step: `Sift together flour and cocoa. Set aside.`
+      },
+      {
+        id: 3,
+        step: `In mixer, cream butter. Add sugar, salt and vanilla. Beat until pale and very fluffy, at least 5 minutes.Scrape sides and bottom of bowl.Add eggs one at a time, beating well after each. Scrape sides and bottom. Add baking soda, beat thoroughly.`
+      },
+      {
+        id: 4,
+        step: `Slowly blend 1/3 of flour mixture to creamed mixture, then 1/2 the buttermilk, 1/2 the remaining flour, all the remaining buttermilk, and finally all the remaining flour. Scrape sides and bottom of bowl completely after last addition. Beat on low speed 30-60 seconds.`
+      },
+      {
+        id: 5,
+        step: `Divide batter evenly between pans. Bake 30 to 40 minutes (18 to 20 for cupcakes) until 209 degrees, or a cake tester comes out clean and cake starts to pull away from sides of pan.`
+      },
+      {
+        id: 6,
+        step: `Cool 10 minutes, remove from pan and cool completely on cake rack.`
+      },
+    ],
+    images: [
+      {
+        id: 0,
+        picture: `https://richanddelish.com/wp-content/uploads/2022/04/best-one-bowl-chocolate-cake.jpg`,
+        alt: `Chocolate Cake`
+      }
+    ]
+  },
+
+
+
+
+],
   users: [
     {
       id: 0,
