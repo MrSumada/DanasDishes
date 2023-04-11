@@ -49,7 +49,9 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
 
     // Array of recipe objects
     let options = [];
-    const sortRecipes = recipes.sort((a, b) => {
+    let sortRecipes = [];
+    
+    sortRecipes.sort((a, b) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
         if (nameA < nameB) {
@@ -61,13 +63,14 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
         return 0;
     });
     for (let i = 0; i < recipes.length; i++){
-        if (sortRecipes[i].name === recipes[RecipeNum].name) {
-            options.push({value: i, label: `✓ ${sortRecipes[i].name}`})
+        if (recipes[i].name === recipes[RecipeNum].name) {
+            options.push({value: i, label: `✓ ${recipes[i].name}`})
         } else {
-            options.push({value: i, label: sortRecipes[i].name})
+            options.push({value: i, label: recipes[i].name})
         }
         
     }
+    // console.log(recipes)
 
     // set recipe and close modal when recipe selected
     useEffect(() => {

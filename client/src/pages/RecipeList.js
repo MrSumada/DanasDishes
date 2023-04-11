@@ -3,9 +3,7 @@ import data from "../recipes.js"
 const RecipeList = ({ recipe, author, setPage, setRecipeNum }) => {
 
     const authorName = data.users.filter(user => author === user.id)
-
     const sortedRecipes = data.recipes.filter(recipe => author === recipe.author.id )
-
     const routeRecipe = (e) => {
         setPage("Home");
         setRecipeNum(e.target.getAttribute("data-recipe"));
@@ -20,11 +18,7 @@ const RecipeList = ({ recipe, author, setPage, setRecipeNum }) => {
                 </div>
             )}
         </div>
-        
     )
-    // return(
-    //     <div>RecipeList</div>
-    // )
 }
 
 export default RecipeList;

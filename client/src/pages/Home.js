@@ -24,7 +24,7 @@ const Home = () => {
     }
   }, [])
     
-  let recipe = data.recipes[RecipeNum]
+  let recipe = data.recipes.sort((a, b) => a.id - b.id)[RecipeNum]
 
   return (
     <div className={`App ${Page === "Home" ? "recipe" : ""}`}>
