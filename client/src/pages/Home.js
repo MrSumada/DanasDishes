@@ -63,6 +63,7 @@ const Home = () => {
         setLoggedIn={setLoggedIn}
         author={currentAuthorId}
         setCurrentAuthorId={setCurrentAuthorId}
+        RecipeNum={RecipeNum}
         setRecipeNum={setRecipeNum}
       />) : ("")}
       {Page === "Upload" || Page === "RecipeList" ? (<Footer page={"blue"}/>) : (<Footer page={"default"}/>)}

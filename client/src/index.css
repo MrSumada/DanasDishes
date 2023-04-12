@@ -87,27 +87,18 @@ textarea {
   height: 20vh;
 }
 
-#logo {
-  width: min(50vw, 50vh);
-  margin: 7.5vh auto 0 auto;
-}
+/* Header Component */
 
 #page-header {
   display: flex;
   justify-content: center;
 }
 
-#login-container {
-  display: flex;
-  margin: auto;
-  width: 50vw;
-}
-
 #selector, #upload-toggle, #login, #signup, #back-button {
   color: var(--darkest-color);
   background-color: var(--mid-color);
   border-radius: 5px;
-  border: solid 5px var(--mid-color);
+  padding: 5px;
   max-height: 50px;
   cursor: pointer;
 }
@@ -117,11 +108,6 @@ textarea {
   position: absolute;
   top: 30px;
   z-index: 3;
-}
-
-#login, #signup {
-  margin: auto;
-  width: 120px;
 }
 
 #selector {
@@ -136,6 +122,29 @@ textarea {
   left: max(5vw, 30px);
   top: 80px;
 }
+
+
+/* Login Page */
+
+#logo {
+  width: min(50vw, 50vh);
+  margin: 7.5vh auto 0 auto;
+}
+
+#login-container {
+  display: flex;
+  margin: auto;
+  width: 50vw;
+  gap: 5vw;
+}
+
+#login, #signup {
+  margin: auto;
+  width: 120px;
+}
+
+
+/* Modals */
 
 .selector-modal, .login-modal, .signup-modal {
   position: fixed;
@@ -190,6 +199,15 @@ textarea {
   border-radius: 5px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+  .menu-item {
+    width: 50vw;
+  }
+}
+
+
+/* Card Component */
 
 .recipe-info {
   display: flex;
@@ -271,6 +289,9 @@ textarea {
   overflow: scroll;
 }
 
+
+/* Upload Page */
+
 .upload {
   display: flex;
   flex-direction: column;
@@ -312,6 +333,8 @@ textarea {
   }
 }
 
+/* Checkboxes */
+
 .checkbox {
   cursor: pointer;
 }
@@ -331,14 +354,18 @@ textarea {
   background-color: var(--mid-color);
 }
 
+/* Bio Component */
+
 .clickable {
   font-weight: 700;
   cursor: pointer;
 }
 
+/* RecipeList Component */
+
 #recipe-list {
   height: 100vh;
-  padding: 5vh 0;
+  padding: 7.5vh 0;
   background-color: var(--light-off-color);
   color: var(--darkest-color);
 }
@@ -396,8 +423,13 @@ footer {
     width: 20vw;
   }
 
-  #selector, #upload-toggle {
+  #selector, #upload-toggle, #back-button {
     font-size: .6em;
+  }
+
+  #back-button {
+    margin-top: 20px;
+    border: var(--mid-off-color) 1px solid;
   }
 
   .card {

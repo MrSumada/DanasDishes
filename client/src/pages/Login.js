@@ -28,8 +28,8 @@ const Login = ({ Page, setPage, LoggedIn, setLoggedIn }) => {
         <div className="App login">
             <img id="logo" src={logo} alt="Dana's Dishes Logo"></img>
             <div id="login-container">
-                <div id="login" onClick={loginUser}>Login Here</div>
-                <div id="signup" onClick={signUpUser}>Sign Up Here</div>
+                <div id="login" onClick={loginUser}>Login</div>
+                <div id="signup" onClick={signUpUser}>Sign Up</div>
             </div>
             {LoginModal ?( 
                 <div className="login-modal">

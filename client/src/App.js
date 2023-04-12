@@ -8,7 +8,7 @@ import Recipe from './pages/Recipe';
 import Login from './pages/Login';
 import Upload from './pages/Upload';
 import Home from './pages/Home';
-import recipes from './recipes';
+import data from './recipes';
 import {
   ApolloProvider,
   ApolloClient,
@@ -44,6 +44,20 @@ function App() {
   const [RecipeNum, setRecipeNum] = useState(0)
 
   let storedRecipe = localStorage.getItem(`Recipe`) || 0; 
+
+  // const sortRecipes = data.recipes;
+    
+  //   sortRecipes.sort((a, b) => {
+  //       const nameA = a.name.toUpperCase();
+  //       const nameB = b.name.toUpperCase();
+  //       if (nameA < nameB) {
+  //           return -1;
+  //       }
+  //       if (nameA > nameB) {
+  //           return 1;
+  //       }
+  //       return 0;
+  //   });
 
   useEffect(() => {
     if (storedRecipe) {
