@@ -49,26 +49,22 @@ const Header = ({ recipes, RecipeNum, setRecipeNum, Page, setPage, Tab, LoggedIn
 
     // Array of recipe objects
     let options = [];
-    // const sortRecipes = [];
-    
-    // sortRecipes.sort((a, b) => {
-    //     const nameA = a.name.toUpperCase();
-    //     const nameB = b.name.toUpperCase();
-    //     if (nameA < nameB) {
-    //         return -1;
-    //     }
-    //     if (nameA > nameB) {
-    //         return 1;
-    //     }
-    //     return 0;
-    // });
-    for (let i = 0; i < recipes.length; i++){
-        if (recipes[i].name === recipes[RecipeNum].name) {
-            options.push({value: i, label: `✓ ${recipes[i].name}`})
-        } else {
-            options.push({value: i, label: recipes[i].name})
-        }
+
+    let sortedRecipeSelections = [...recipes].sort(
+        function (a, b) {
+            const name1 = a.name.toUpperCase();
+            const name2 = b.name.toUpperCase();
+            if (name1 > name2) { return 1; }
+            if (name1 < name2) { return -1; }
+            return 0;
+        })
         
+    for (let i = 0; i < sortedRecipeSelections.length; i++){
+        if (sortedRecipeSelections[i]._id === recipes[RecipeNum]._id) {
+            options.push({value: sortedRecipeSelections[i]._id, label: `✓ ${sortedRecipeSelections[i].name}`})
+        } else {
+            options.push({value: sortedRecipeSelections[i]._id, label: sortedRecipeSelections[i].name})
+        }
     }
 
     // set recipe and close modal when recipe selected

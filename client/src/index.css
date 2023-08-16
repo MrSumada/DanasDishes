@@ -206,6 +206,11 @@ textarea {
   }
 }
 
+/* Recipe Component */
+
+.recipe-name {
+  margin-top: 2.5dvh;
+}
 
 /* Card Component */
 
@@ -228,7 +233,7 @@ textarea {
   padding: 2dvh 2vw;
   margin: 0 2vw 2dvh 2vw;
   border-radius: 15px 15px 15px 15px;
-  height: 60dvh;
+  height: 57.5dvh;
   overflow: scroll;
   text-align: left;
 }

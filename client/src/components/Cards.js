@@ -14,10 +14,14 @@ const Cards = ({ recipe, RecipeNum, Tab, setTab }) => {
     }, [setTab])
 
     // retain Length from localStorage
+    // useEffect(()=>{
+    //     setLength(JSON.parse(localStorage.getItem(`recipe-${parseInt(RecipeNum)}-length`)) || 0)
+    // }, [length])
+
+    // reset Length on recipe change, retain length from local storage on startup
     useEffect(()=>{
         setLength(JSON.parse(localStorage.getItem(`recipe-${parseInt(RecipeNum)}-length`)) || 0)
-    }, [length])
- 
+    }, [RecipeNum])
 
     // Switch to either selected Tab or Two up display for Ingredients and Steps
     function switchTab (e) { 
