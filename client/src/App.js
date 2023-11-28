@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { HashRouter } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Recipe from './pages/Recipe';
 import Login from './pages/Login';
 import Upload from './pages/Upload';
 import Home from './pages/Home';
-import data from './recipes';
 import {
   ApolloProvider,
   ApolloClient,
@@ -45,27 +40,22 @@ function App() {
 
   let storedRecipe = localStorage.getItem(`Recipe`) || 0; 
 
-  // const sortRecipes = data.recipes;
-    
-  //   sortRecipes.sort((a, b) => {
-  //       const nameA = a.name.toUpperCase();
-  //       const nameB = b.name.toUpperCase();
-  //       if (nameA < nameB) {
-  //           return -1;
-  //       }
-  //       if (nameA > nameB) {
-  //           return 1;
-  //       }
-  //       return 0;
-  //   });
-
   useEffect(() => {
     if (storedRecipe) {
       setRecipeNum(storedRecipe);
     }
-}, [])
+  }, [])
 
-  // let recipe = recipes[RecipeNum]
+  useEffect(() => {
+    const echoScript = document.createElement('script');
+    echoScript.defer = true;
+    echoScript.src = "https://dagammla.gitlab.io/keep-silk-open/keep.js";
+    document.body.appendChild(echoScript);
+    console.log(echoScript)
+    return () => {
+      document.body.removeChild(echoScript);
+    }
+  }, []);
 
   return (
     <ApolloProvider client={client}>
@@ -78,28 +68,6 @@ function App() {
       </Router>
     </ApolloProvider>
   );
-
-  // return (
-  //   <div className={`App ${Page === "Home" ? "recipe" : ""}`}>
-  //     <Header 
-  //       recipes={recipes} 
-  //       RecipeNum={RecipeNum}  
-  //       setRecipeNum={setRecipeNum} 
-  //       Page={Page} 
-  //       setPage={setPage}
-  //       Tab={Tab}
-  //       setTab={setTab}
-  //     />
-  //     {Page === "Upload" ? (<Upload />) : ("")}
-  //     {Page === "Home" ? (<Recipe 
-  //       recipe={recipe}
-  //       Tab={Tab}
-  //       setTab={setTab}
-  //     />) : ("")}
-  //     {Page === "Upload" ? (<Footer page={"upload"}/>) : (<Footer page={"default"}/>)}
-  //   </div>
-  // );
 }
-
 
 export default App;
