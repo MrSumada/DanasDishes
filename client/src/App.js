@@ -40,18 +40,19 @@ function App() {
 
   let storedRecipe = localStorage.getItem(`Recipe`) || 0; 
 
+  // Reload last recipe on Page Load
   useEffect(() => {
     if (storedRecipe) {
       setRecipeNum(storedRecipe);
     }
   }, [])
 
+  // Keep open on Amazon Silk Device
   useEffect(() => {
     const echoScript = document.createElement('script');
     echoScript.defer = true;
     echoScript.src = "https://dagammla.gitlab.io/keep-silk-open/keep.js";
     document.body.appendChild(echoScript);
-    console.log(echoScript)
     return () => {
       document.body.removeChild(echoScript);
     }
@@ -60,7 +61,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-      <Routes basename="/DanasDishes">
+        <Routes basename="/DanasDishes">
           <Route exact path="/upload" element={<Upload />} />
           <Route exact path="/login" element={<Login />} />
           <Route  path="/*" element={<Home />} />

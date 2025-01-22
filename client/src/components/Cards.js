@@ -45,10 +45,10 @@ const Cards = ({ recipe, RecipeNum, Tab, setTab }) => {
             <div>
                 {/* NAV BAR for the recipe */}
                 <div className="nav-tabs">
-                    <div className={`nav ${(Tab==="Story") ? "active" : ""}`} id="Story" onClick={switchTab}>Background</div>
                     <div className={`nav ${((Tab==="Ingredients" || (Tab==="Two"))) ? "active" : ""}`} id="Ingredients" onClick={switchTab}>Ingredients</div>
                     <div className={`nav ${((Tab==="Steps") || (Tab==="Two")) ? "active" : ""}`} id="Steps" onClick={switchTab}>Steps</div>
                     <div className={`nav ${(Tab==="Images") ? "active" : ""}`} id="Images" onClick={switchTab}>Images</div>
+                    <div className={`nav ${(Tab==="Story") ? "active" : ""}`} id="Story" onClick={switchTab}>Background</div>
                 </div>
 
                 {/* BACKGROUND for the Recipe */}
